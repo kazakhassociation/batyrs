@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ұлы Дала Батырлары | Қазақ ерлік энциклопедиясы</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%);
+            color: #202122;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Сайдбар */
+        .sidebar {
+            width: 300px;
+            background: #f8f9fa;
+            border-right: 1px solid #a2a9b1;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #36c;
+        }
+        
+        .logo h1 {
+            color: #36c;
+            font-size: 1.4em;
+            font-weight: normal;
+        }
+        
+        .logo .subtitle {
+            font-size: 0.9em;
+            color: #54595d;
+            margin-top: 5px;
+        }
+        
+        .nav-section {
+            margin-bottom: 25px;
+        }
+        
+        .nav-section h3 {
+            color: #54595d;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-weight: normal;
+            border-left: 3px solid #36c;
+            padding-left: 10px;
+        }
+        
+        .nav-links {
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-bottom: 8px;
+        }
+        
+        .nav-links a {
+            color: #0645ad;
+            text-decoration: none;
+            font-size: 0.95em;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            background-color: #eaecf0;
+        }
+        
+        /* Основной контент */
+        .main-content {
+            margin-left: 300px;
+            padding: 30px;
+            flex: 1;
+            background: white;
+        }
+        
+        .article-header {
+            border-bottom: 1px solid #a2a9b1;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .article-header h1 {
+            font-size: 1.8em;
+            color: #000;
+            font-weight: normal;
+            margin-bottom: 8px;
+        }
+        
+        .article-meta {
+            color: #54595d;
+            font-size: 0.9em;
+        }
+        
+        .content-block {
+            background: white;
+            border: 1px solid #a7d7f9;
+            border-radius: 3px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .content-block h2 {
+            color: #000;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eaecf0;
+            font-weight: normal;
+        }
+        
+        .content-block h3 {
+            color: #000;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: normal;
+        }
+        
+        /* Инфобокс */
+        .infobox {
+            float: right;
+            width: 300px;
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            margin: 0 0 20px 20px;
+            padding: 15px;
+            font-size: 0.9em;
+        }
+        
+        .infobox h3 {
+            text-align: center;
+            background: #eaecf0;
+            margin: -15px -15px 10px -15px;
+            padding: 10px;
+            font-size: 1.1em;
+        }
+        
+        .infobox-row {
+            display: flex;
+            margin-bottom: 8px;
+            padding: 4px 0;
+            border-bottom: 1px solid #eaecf0;
+        }
+        
+        .infobox-label {
+            font-weight: bold;
+            width: 40%;
+            color: #54595d;
+        }
+        
+        .infobox-value {
+            width: 60%;
+        }
+        
+        /* Сетка батыров */
+        .batyr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .batyr-card {
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            border-radius: 3px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .batyr-card:hover {
+            background: #eaecf0;
+            border-color: #36c;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .batyr-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            display: block;
+            border: 2px solid #a2a9b1;
+            background: #eaecf0;
+        }
+        
+        .batyr-card h3 {
+            color: #0645ad;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+        
+        .batyr-card .years {
+            color: #54595d;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        
+        .batyr-card .description {
+            color: #54595d;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+        
+        /* Таймлайн */
+        .batyr-timeline {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #36c;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 25px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #36c;
+            border-radius: 50%;
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: #36c;
+        }
+        
+        /* Жыр секция */
+        .zhyr-section {
+            background: #f8f9fa;
+            border-left: 4px solid #36c;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .zhyr-text {
+            color: #54595d;
+            line-height: 1.8;
+        }
+        
+        /* Таблицы и списки */
+        .battles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .battle-card {
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            padding: 15px;
+            border-radius: 3px;
+        }
+        
+        .battle-card h4 {
+            color: #0645ad;
+            margin-bottom: 8px;
+        }
+        
+        .references {
+            background: #eaecf0;
+            padding: 15px;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        
+        .references h3 {
+            margin-bottom: 10px;
+        }
+        
+        .references ol {
+            padding-left: 20px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 1200px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .infobox {
+                float: none;
+                width: 100%;
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Сайдбар -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>Ұлы Дала Батырлары</h1>
+                <div class="subtitle">Қазақ ерлік энциклопедиясы</div>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Негізгі бөлімдер</h3>
+                <ul class="nav-links">
+                    <li><a href="#introduction">Кіріспе</a></li>
+                    <li><a href="#historical-context">Тарихи контекст</a></li>
+                    <li><a href="#great-batyrs">Ұлы батырлар</a></li>
+                    <li><a href="#major-battles">Негізгі шайқастар</a></li>
+                    <li><a href="#zhyr-tradition">Жыр дәстүрі</a></li>
+                    <li><a href="#legacy">Тарихи мұра</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Батырлар</h3>
+                <ul class="nav-links">
+                    <li><a href="karasay-batyr.html">Қарасай батыр</a></li>
+                    <li><a href="bogenbay-batyr.html">Бөгенбай батыр</a></li>
+                    <li><a href="kabanbay-batyr.html">Қабанбай батыр</a></li>
+                    <li><a href="nauryzbay-batyr.html">Наурызбай батыр</a></li>
+                    <li><a href="raimbek-batyr.html">Райымбек батыр</a></li>
+                    <li><a href="syrym-batyr.html">Сырым батыр</a></li>
+                    <li><a href="espan-batyr.html">Еспан батыр</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3>Қосымша</h3>
+                <ul class="nav-links">
+                    <li><a href="#gallery">Суреттер галереясы</a></li>
+                    <li><a href="#maps">Тарихи карталар</a></li>
+                    <li><a href="#sources">Дереккөздер</a></li>
+                    <li><a href="#links">Сілтемелер</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <header class="article-header">
+                <h1>Ұлы Дала Батырлары</h1>
+                <div class="article-meta">
+                    Қазақ хандығының ерлік дәуірі (XV-XVIII ғасырлар)
+                </div>
+            </header>
+
+            <!-- Инфобокс -->
+            <aside class="infobox">
+                <h3>Ұлы Дала Батырлары</h3>
+                <div class="infobox-row">
+                    <div class="infobox-label">Кезең:</div>
+                    <div class="infobox-value">XV-XVIII ғ.</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Негізгі оқиға:</div>
+                    <div class="infobox-value">Жоңғар соғысы</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Белгілі батырлар:</div>
+                    <div class="infobox-value">20+ атақты тұлға</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Негізгі шайқас:</div>
+                    <div class="infobox-value">Аңырақай (1730)</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Әдеби мұра:</div>
+                    <div class="infobox-value">100+ эпос жыр</div>
+                </div>
+            </aside>
+
+            <!-- Введение -->
+            <section id="introduction" class="content-block">
+                <h2>Кіріспе</h2>
+                <p><b>Ұлы Дала батырлары</b> — бұл XV-XVIII гасырлар аралығында Қазақ хандығының тәуелсіздігі үшін күрескен, ерлік пен қажырдың тірі үлгісіне айналған батырлар галереясы. Олар тек әскери қолбасшылар ғана емес, сонымен бірге ұлттық рухтың, еркіндік идеясының және қазақтың әскери өнерінің тарихи тұлғалары болды.</p>
+                
+                <p>Батырлар ұғымы қазақтардың рухани өмірінде ерекше орын алады. Олар тек қана жауға қарсы шайқасқан әскерилер емес, сонымен бірге әділеттілік, ар-намыс және еркіндік үшін күрес символдары болды.</p>
+                
+                <h3>Батырлықтың негізгі қағидалары</h3>
+                <ul>
+                    <li><b>Ерлік</b> — қаһармандық пен батылдық</li>
+                    <li><b>Әділеттілік</b> — әділдік пен адамгершілік</li>
+                    <li><b>Отансүйгіштік</b> — Отан үшін қанын төгуге дайындық</li>
+                    <li><b>Қайырымдылық</b> — әлсіздерді қорғау</li>
+                </ul>
+            </section>
+
+            <!-- Исторический контекст -->
+            <section id="historical-context" class="content-block">
+                <h2>Тарихи контекст</h2>
+                
+                <h3>Жоңғар шапқыншылығы</h3>
+                <p>XVII-XVIII гасырларда Қазақ хандығы өзінің ең қиын тарихи кезеңдерінің бірін басынан кешірді. Жоңғар (Ойрат) хандығының үнемілеген шабуылдары қазақ даласының тәуелсіздігіне тікелей қауіп төндірді.</p>
+                
+                <div class="batyr-timeline">
+                    <h3>Негізгі оқиғалар хронологиясы</h3>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1643 жыл</span>
+                        <p><b>Орбұлақ шайқасы</b> — Қарасай батырдың жеңісі. 600 қазақ әскері 50.000 жоңғар әскеріне қарсы тұрды.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1723-1727 жж</span>
+                        <p><b>«Ақтабан шұбырынды»</b> — Ұлы қашқын. Қазақ халқының оңтүстікке қарай көшуі.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1730 жыл</span>
+                        <p><b>Аңырақай шайқасы</b> — шешуші жеңіс. Қазақ әскерлерінің бірігуі.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1758 жыл</span>
+                        <p><b>Соңғы жоңғар шабуылдарының жеңілісі</b> — Қазақ жеріндегі жоңғар қауымының соңы.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Великие батыры -->
+            <section id="great-batyrs" class="content-block">
+                <h2>Ұлы батырлар</h2>
+                <p>Қазақ тарихында ондаған атақты батырлар болды. Төменде ең белгілілерінің тізімі берілген:</p>
+
+                <div class="batyr-grid">
+                    <a href="karasay-batyr.html" class="batyr-card">
+                        <!-- ФОТО КАРАСАЙ БАТЫРА -->
+                        <div class="batyr-image"></div>
+                        <h3>Қарасай батыр</h3>
+                        <div class="years">1598-1671 жж</div>
+                        <div class="description">Ноғайлы руы, Орбұлақ шайқасының батыры</div>
+                    </a>
+                    
+                    <a href="bogenbay-batyr.html" class="batyr-card">
+                        <!-- ФОТО БОГЕНБАЙ БАТЫРА -->
+                        <div class="batyr-image"></div>
+                        <h3>Бөгенбай батыр</h3>
+                        <div class="years">1680-1778 жж</div>
+                        <div class="description">Шапырашты руы, Аңырақай шайқасының батыры</div>
+                    </a>
+                    
+                    <a href="kabanbay-batyr.html" class="batyr-card">
+                        <!-- ФОТО КАБАНБАЙ БАТЫРА -->
+                        <div class="batyr-image"></div>
+                        <h3>Қабанбай батыр</h3>
+                        <div class="years">1691-1770 жж</div>
+                        <div class="description">Найман руы, "Қалмақ қырындысы"</div>
+                    </a>
+
+                    <a href="nauryzbay-batyr.html" class="batyr-card">
+                        <!-- ФОТО НАУРЫЗБАЙ БАТЫРА -->
+                        <div class="batyr-image"></div>
+                        <h3>Наурызбай батыр</h3>
+                        <div class="years">1706-1781 жж</div>
+                        <div class="description">Қанжығалы руы, Бұланты шайқасының батыры</div>
+                    </a>
+
+                    <a href="raimbek-batyr.html" class="batyr-card">
+                        <!-- ФОТО РАЙЫМБЕК БАТЫРА -->
+                        <div class="batyr-image"></div>
+                        <h3>Райымбек батыр</h3>
+                        <div class="years">1705-1785 жж</div>
+                        <div class="description">Дулат руы, Алматы қаласының негізін қалаушы</div>
+                    </a>
+
+                    <a href="syrym-batyr.html" class="batyr-card">
+                        <!-- ФОТО СЫРЫМ БАТЫРА -->
+                        <div class="batyr-image"></div>
+                        <h3>Сырым батыр</h3>
+                        <div class="years">1712-1802 жж</div>
+                        <div class="description">Байұлы руы, Халық көтерілісінің жетекшісі</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Основные битвы -->
+            <section id="major-battles" class="content-block">
+                <h2>Негізгі шайқастар</h2>
+                <p>Жоңғар шапқыншылығына қарсы күресте бірнеше шешуші шайқастар болды:</p>
+                
+                <div class="battles-grid">
+                    <div class="battle-card">
+                        <h4>Орбұлақ шайқасы (1643)</h4>
+                        <p><b>Қатысушы:</b> Қарасай батыр<br>
+                        <b>Күштер:</b> 600 қазақ vs 50.000 жоңғар<br>
+                        <b>Нәтиже:</b> Тактикалық жеңіс</p>
+                    </div>
+                    
+                    <div class="battle-card">
+                        <h4>Аңырақай шайқасы (1730)</h4>
+                        <p><b>Қатысушы:</b> Бөгенбай, Қабанбай<br>
+                        <b>Күштер:</b> 30.000 қазақ vs 25.000 жоңғар<br>
+                        <b>Нәтиже:</b> Шешуші жеңіс</p>
+                    </div>
+                    
+                    <div class="battle-card">
+                        <h4>Бұланты шайқасы (1728)</h4>
+                        <p><b>Қатысушы:</b> Наурызбай батыр<br>
+                        <b>Күштер:</b> 15.000 қазақ vs 12.000 жоңғар<br>
+                        <b>Нәтиже:</b> Стратегиялық жеңіс</p>
+                    </div>
+                </div>
+
+                <h3>Шайқастардың тарихи маңызы</h3>
+                <p>Бұл шайқастар қазақ халқының тағдырын шешкен шешуші соғыстар болды. Олар қазақ мемлекеттілігінің сақталуына және ұлттық рухтың нығаюына ықпал етті.</p>
+            </section>
+
+            <!-- Жыр традиция -->
+            <section id="zhyr-tradition" class="content-block">
+                <h2>Жыр дәстүрі</h2>
+                
+                <p>Қазақ батырларының ерліктері жырлар мен дастандар арқылы ұрпақтан-ұрпаққа жеткізілді. Әрбір үлкен батырдың өзіне тән жыры болды.</p>
+                
+                <div class="zhyr-section">
+                    <div class="zhyr-text">
+                        "Аңырақайдың аңсарында,<br>
+                        Бөгенбайдың боранды күні,<br>
+                        Жоңғардың жандырған отына,<br>
+                        Батырлардың барып тұрғаны..."
+                    </div>
+                </div>
+                
+                <h3>Негізгі жырлар тізімі:</h3>
+                <ul>
+                    <li><b>«Қарасай батыр» жыры</b> — Орбұлақ шайқасы туралы эпос</li>
+                    <li><b>«Бөгенбай батыр» дастаны</b> — Аңырақай шайқасының батыры</li>
+                    <li><b>«Қабанбай батыр» жыры</b> — "Қалмақ қырындысы" туралы</li>
+                    <li><b>«Аңырақай» тарихи жыры</b> — Ұлы жеңіс туралы эпос</li>
+                    <li><b>«Наурызбай батыр» жыры</b> — Бұланты шайқасының батыры</li>
+                </ul>
+
+                <h3>Жыраулар дәстүрі</h3>
+                <p>Қазақ жыраулары — Бухар, Шалкиіз, Марқасқа сияқты ақындар батырлардың ерліктерін жырлап, олардың есімдерін мәңгілеткен.</p>
+            </section>
+
+            <!-- Наследие -->
+            <section id="legacy" class="content-block">
+                <h2>Тарихи мұра</h2>
+                
+                <p>Ұлы Дала батырлары қазақ халқының ұлттық санасында терең із қалдырды. Олардың ерліктері:</p>
+                
+                <ul>
+                    <li><b>Қазақ мемлекеттілігінің сақталуы</b> — тәуелсіздіктің сақталуы</li>
+                    <li><b>Ұлттық рухты нығайту</b> — патриотизм мен ерлік рухы</li>
+                    <li><b>Әскери өнерді дамыту</b> — тактика мен стратегия</li>
+                    <li><b>Ұрпақтарға тәрбие</b> — патриотизм тәрбиесі</li>
+                </ul>
+                
+                <h3>Қазіргі заманғы мұра</h3>
+                <p>Бүгінде батырлардың есімдері көшелерге, қалаларға, мектептерге беріліп, олардың ерліктері мәңгі есте сақталуда. Көптеген ескерткіштер, мұражайлар және тарихи орындар батырлардың есімдерімен аталады.</p>
+            </section>
+
+            <!-- Дополнительные разделы -->
+            <section id="gallery" class="content-block">
+                <h2>Суреттер галереясы</h2>
+                <p>Батырлардың суреттері, ескерткіштері және тарихи орындардың фотосуреттері.</p>
+                <!-- Галерея будет добавлена позже -->
+            </section>
+
+            <section id="maps" class="content-block">
+                <h2>Тарихи карталар</h2>
+                <p>Шайқастардың болған жерлері, қазақ хандығының шекаралары және тарихи жолдар.</p>
+                <!-- Карты будут добавлены позже -->
+            </section>
+
+            <!-- Источники -->
+            <footer class="references">
+                <h3>Әдебиеттер тізімі</h3>
+                <ol>
+                    <li>«Қазақстан тарихы» (8 томдық) - Алматы, 2011</li>
+                    <li>М. Әуезов. «Абай жолы» эпопеясы</li>
+                    <li>«Батырлар жыры» жинағы - Астана, 2005</li>
+                    <li>Қазақ энциклопедиясы - Алматы, 1998</li>
+                    <li>«Жоңғар соғысы және қазақ батырлары» - А., 2008</li>
+                </ol>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // Плавная прокрутка для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
