@@ -13,7 +13,10 @@
         
         body {
             font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%);
+            background: 
+                linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+                url('https://images.unsplash.com/photo-1596541223130-5d0c0b0b5c0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+            background-size: cover;
             color: #202122;
             line-height: 1.6;
             min-height: 100vh;
@@ -29,13 +32,14 @@
         /* Сайдбар */
         .sidebar {
             width: 300px;
-            background: #f8f9fa;
+            background: rgba(248, 249, 250, 0.95);
             border-right: 1px solid #a2a9b1;
             padding: 20px;
             position: fixed;
             height: 100vh;
             overflow-y: auto;
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
         }
         
         .logo {
@@ -98,7 +102,8 @@
             margin-left: 300px;
             padding: 30px;
             flex: 1;
-            background: white;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
         }
         
         .article-header {
@@ -120,7 +125,7 @@
         }
         
         .content-block {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             border: 1px solid #a7d7f9;
             border-radius: 3px;
             padding: 25px;
@@ -206,17 +211,26 @@
             border-color: #36c;
             text-decoration: none;
             color: inherit;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         
         .batyr-image {
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            object-fit: cover;
             margin: 0 auto 15px;
             display: block;
             border: 2px solid #a2a9b1;
             background: #eaecf0;
+            overflow: hidden;
+        }
+        
+        .batyr-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         
         .batyr-card h3 {
@@ -301,6 +315,33 @@
             margin-bottom: 8px;
         }
         
+        /* Стили для карты */
+        .battle-map {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            margin: 20px auto;
+            border: 2px solid #a2a9b1;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .battle-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .map-caption {
+            text-align: center;
+            color: #54595d;
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
         .references {
             background: #eaecf0;
             padding: 15px;
@@ -337,6 +378,16 @@
                 width: 100%;
                 margin: 20px 0;
             }
+            
+            .battle-map {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .battle-map {
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -370,7 +421,7 @@
                     <li><a href="nauryzbay-batyr.html">Наурызбай батыр</a></li>
                     <li><a href="raimbek-batyr.html">Райымбек батыр</a></li>
                     <li><a href="syrym-batyr.html">Сырым батыр</a></li>
-                    <li><a href="espan-batyr.html">Еспан батыр</a></li>
+                    <li><a href="ospan-batyr.html">Oспан батыр</a></li>
                 </ul>
             </div>
 
@@ -422,7 +473,14 @@
             <!-- Введение -->
             <section id="introduction" class="content-block">
                 <h2>Кіріспе</h2>
-                <p><b>Ұлы Дала батырлары</b> — бұл XV-XVIII гасырлар аралығында Қазақ хандығының тәуелсіздігі үшін күрескен, ерлік пен қажырдың тірі үлгісіне айналған батырлар галереясы. Олар тек әскери қолбасшылар ғана емес, сонымен бірге ұлттық рухтың, еркіндік идеясының және қазақтың әскери өнерінің тарихи тұлғалары болды.</p>
+                <p><b>Ұлы Дала батырлары</b> - Қазақ халқының тарихында елінің азаттығы мен еркіндігі жолында
+күрескен батырлардың орны айрықша. Олар елдің тәуелсіздігі мен бейбіт
+өмірін қорғауда маңызды рөллер атқарды. Елін сыртқы жаулардан қорғаушы
+күш қана емес, халықтың рухын көтеріп, бірлігін сақтап нығайтуға, ұлттық
+сананың сақталуына зор үлес қосқан тұтас бір жүйе ретінде танылды.
+Батырлар институты – қазақ халқының қоғамдық-саяси және рухани өмірінде
+ерекше орын алған тарихи-әлеуметтік құбылыс. Батырлар тұлғасы да
+халықтың тарихи жадында мәңгі сақталған құндылықтардың біріне жатады.</p>
                 
                 <p>Батырлар ұғымы қазақтардың рухани өмірінде ерекше орын алады. Олар тек қана жауға қарсы шайқасқан әскерилер емес, сонымен бірге әділеттілік, ар-намыс және еркіндік үшін күрес символдары болды.</p>
                 
@@ -471,7 +529,9 @@
                 <div class="batyr-grid">
                     <a href="karasay-batyr.html" class="batyr-card">
                         <!-- ФОТО КАРАСАЙ БАТЫРА -->
-                        <div class="batyr-image"></div>
+                        <div class="batyr-image">
+                            <img src="https://www.zharar.com/uploads/posts/2016-11/1479017860_6cm8i808hxqoghg6fhg969bi656fc0.jpg" alt="Қарасай батыр">
+                        </div>
                         <h3>Қарасай батыр</h3>
                         <div class="years">1598-1671 жж</div>
                         <div class="description">Ноғайлы руы, Орбұлақ шайқасының батыры</div>
@@ -479,7 +539,9 @@
                     
                     <a href="bogenbay-batyr.html" class="batyr-card">
                         <!-- ФОТО БОГЕНБАЙ БАТЫРА -->
-                        <div class="batyr-image"></div>
+                        <div class="batyr-image">
+                            <img src="https://all-generals.ru/assets/images/polkovodci/SV/Kazahi/Bogenbay%20batir.jpg" alt="Бөгенбай батыр">
+                        </div>
                         <h3>Бөгенбай батыр</h3>
                         <div class="years">1680-1778 жж</div>
                         <div class="description">Шапырашты руы, Аңырақай шайқасының батыры</div>
@@ -487,7 +549,9 @@
                     
                     <a href="kabanbay-batyr.html" class="batyr-card">
                         <!-- ФОТО КАБАНБАЙ БАТЫРА -->
-                        <div class="batyr-image"></div>
+                        <div class="batyr-image">
+                            <img src="https://018.kz/ru/uploads/posts/2023-01/kabanbaj-batyr.webp" alt="Қабанбай батыр">
+                        </div>
                         <h3>Қабанбай батыр</h3>
                         <div class="years">1691-1770 жж</div>
                         <div class="description">Найман руы, "Қалмақ қырындысы"</div>
@@ -495,7 +559,9 @@
 
                     <a href="nauryzbay-batyr.html" class="batyr-card">
                         <!-- ФОТО НАУРЫЗБАЙ БАТЫРА -->
-                        <div class="batyr-image"></div>
+                        <div class="batyr-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaEQfrrEf43lL_7Jx_Evpvl9e7GLd706Wecg&s" alt="Наурызбай батыр">
+                        </div>
                         <h3>Наурызбай батыр</h3>
                         <div class="years">1706-1781 жж</div>
                         <div class="description">Қанжығалы руы, Бұланты шайқасының батыры</div>
@@ -503,7 +569,9 @@
 
                     <a href="raimbek-batyr.html" class="batyr-card">
                         <!-- ФОТО РАЙЫМБЕК БАТЫРА -->
-                        <div class="batyr-image"></div>
+                        <div class="batyr-image">
+                            <img src="https://media-cdn.tripadvisor.com/media/photo-s/0c/8d/5d/f4/caption.jpg" alt="Райымбек батыр">
+                        </div>
                         <h3>Райымбек батыр</h3>
                         <div class="years">1705-1785 жж</div>
                         <div class="description">Дулат руы, Алматы қаласының негізін қалаушы</div>
@@ -511,7 +579,9 @@
 
                     <a href="syrym-batyr.html" class="batyr-card">
                         <!-- ФОТО СЫРЫМ БАТЫРА -->
-                        <div class="batyr-image"></div>
+                        <div class="batyr-image">
+                            <img src="https://cdn.nur.kz/images/1200x675/7276c0be411e2245.jpeg?version=1" alt="Сырым батыр">
+                        </div>
                         <h3>Сырым батыр</h3>
                         <div class="years">1712-1802 жж</div>
                         <div class="description">Байұлы руы, Халық көтерілісінің жетекшісі</div>
@@ -593,7 +663,7 @@
                 </ul>
                 
                 <h3>Қазіргі заманғы мұра</h3>
-                <p>Бүгінде батырлардың есімдері көшелерге, қалаларға, мектептерге беріліп, олардың ерліктері мәңгі есте сақталуда. Көптеген ескерткіштер, мұражайлар және тарихи орындар батырлардың есімдерімен аталады.</p>
+                <p>Бүгінде батырлардың есімдері көшелерге, қалаларға, мектеплерге беріліп, олардың ерліктері мәңгі есте сақталуда. Көптеген ескерткіштер, мұражайлар және тарихи орындар батырлардың есімдерімен аталады.</p>
             </section>
 
             <!-- Дополнительные разделы -->
@@ -605,19 +675,34 @@
 
             <section id="maps" class="content-block">
                 <h2>Тарихи карталар</h2>
-                <p>Шайқастардың болған жерлері, қазақ хандығының шекаралары және тарихи жолдар.</p>
-                <!-- Карты будут добавлены позже -->
+                <p>Қазақ хандығының шекаралары және тарихи жолдар.</p>
+                
+                <div class="battle-map">
+                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/82631393-0c9c-49c5-a47a-71862a1985d4/dckkfaj-09babb16-6593-42c9-bb9b-9b25f9e1bd4e.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi84MjYzMTM5My0wYzljLTQ5YzUtYTQ3YS03MTg2MmExOTg1ZDQvZGNra2Zhai0wOWJhYmIxNi02NTkzLTQyYzktYmI5Yi05YjI1ZjllMWJkNGUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.PNh2JJkaBkjwUT_Tjd0L53CNp3MYzB2-TL1hWR61zl0" 
+                         alt="Қазақ хандығының XVIII ғасырдағы картасы"
+                         title="Қазақ хандығының XVIII ғасырдағы картасы">
+                </div>
+                <div class="map-caption">
+                    Қазақ хандығының XVIII ғасырдағы картасы - Ұлы жүз, Орта жүз және Кіші жүздің шекаралары
+                </div>
+            
+
+                <h3>Тарихи аймақтар</h3>
+                <p>Картада көрсетілген негізгі аймақтар:</p>
+                <ul>
+                    <li><b>Ұлы жүз</b> - Оңтүстік Қазақстан, Жетісу өңірі</li>
+                    <li><b>Орта жүз</b> - Орталық және Шығыс Қазақстан</li>
+                    <li><b>Кіші жүз</b> - Батыс Қазақстан</li>
+                    <li><b>Жоңғар хандығы</b> - Солтүстік-шығыстағы қауіп</li>
+                </ul>
             </section>
 
             <!-- Источники -->
             <footer class="references">
-                <h3>Әдебиеттер тізімі</h3>
+                <h3>Әдебиет тізімі</h3>
                 <ol>
-                    <li>«Қазақстан тарихы» (8 томдық) - Алматы, 2011</li>
-                    <li>М. Әуезов. «Абай жолы» эпопеясы</li>
-                    <li>«Батырлар жыры» жинағы - Астана, 2005</li>
-                    <li>Қазақ энциклопедиясы - Алматы, 1998</li>
-                    <li>«Жоңғар соғысы және қазақ батырлары» - А., 2008</li>
+                    <li>О-58 XVIII ғ. – XX ғ. басындағы қазақ батырлары. Ғылыми мақалалар мен
+энциклопедиялық материалдар</li>
                 </ol>
             </footer>
         </main>
@@ -636,6 +721,13 @@
                     });
                 }
             });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapImage = document.querySelector('.battle-map img');
+            if (mapImage) {
+                mapImage.loading = 'lazy';
+            }
         });
     </script>
 </body>
