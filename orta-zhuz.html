@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Орта жүз | Қазақ хандығы</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: 
+                linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+                url('https://images.unsplash.com/photo-1596541223130-5d0c0b0b5c0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #202122;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Сайдбар */
+        .sidebar {
+            width: 300px;
+            background: rgba(248, 249, 250, 0.95);
+            border-right: 1px solid #a2a9b1;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #36c;
+        }
+        
+        .logo h1 {
+            color: #36c;
+            font-size: 1.4em;
+            font-weight: normal;
+        }
+        
+        .logo .subtitle {
+            font-size: 0.9em;
+            color: #54595d;
+            margin-top: 5px;
+        }
+        
+        .nav-section {
+            margin-bottom: 25px;
+        }
+        
+        .nav-section h3 {
+            color: #54595d;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-weight: normal;
+            border-left: 3px solid #36c;
+            padding-left: 10px;
+        }
+        
+        .nav-links {
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-bottom: 8px;
+        }
+        
+        .nav-links a {
+            color: #0645ad;
+            text-decoration: none;
+            font-size: 0.95em;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            background-color: #eaecf0;
+        }
+        
+        /* Основной контент */
+        .main-content {
+            margin-left: 300px;
+            padding: 30px;
+            flex: 1;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+        }
+        
+        .article-header {
+            border-bottom: 1px solid #a2a9b1;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .article-header h1 {
+            font-size: 1.8em;
+            color: #000;
+            font-weight: normal;
+            margin-bottom: 8px;
+        }
+        
+        .article-meta {
+            color: #54595d;
+            font-size: 0.9em;
+        }
+        
+        .content-block {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #a7d7f9;
+            border-radius: 3px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .content-block h2 {
+            color: #000;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eaecf0;
+            font-weight: normal;
+        }
+        
+        .content-block h3 {
+            color: #000;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: normal;
+        }
+        
+        /* Инфобокс */
+        .infobox {
+            float: right;
+            width: 300px;
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            margin: 0 0 20px 20px;
+            padding: 15px;
+            font-size: 0.9em;
+        }
+        
+        .infobox h3 {
+            text-align: center;
+            background: #eaecf0;
+            margin: -15px -15px 10px -15px;
+            padding: 10px;
+            font-size: 1.1em;
+        }
+        
+        .infobox-row {
+            display: flex;
+            margin-bottom: 8px;
+            padding: 4px 0;
+            border-bottom: 1px solid #eaecf0;
+        }
+        
+        .infobox-label {
+            font-weight: bold;
+            width: 40%;
+            color: #54595d;
+        }
+        
+        .infobox-value {
+            width: 60%;
+        }
+        
+        /* Карта */
+        .map-section {
+            width: 100%;
+            max-width: 900px;
+            margin: 30px auto;
+            border: 2px solid #a2a9b1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background: #f8f9fa;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+        }
+        
+        .map-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            background: #f8f9fa;
+        }
+        
+        /* Сетка родов */
+        .rod-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .rod-card {
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            border-radius: 3px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .rod-card:hover {
+            background: #eaecf0;
+            border-color: #36c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .rod-card h4 {
+            color: #0645ad;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .rod-structure {
+            margin-top: 10px;
+            padding-left: 15px;
+        }
+        
+        .rod-structure li {
+            margin-bottom: 3px;
+            font-size: 0.9em;
+            color: #54595d;
+        }
+        
+        /* Легенда карты */
+        .map-legend {
+            background: #f8f9fa;
+            border-top: 1px solid #a2a9b1;
+            padding: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+        
+        .legend-item:hover {
+            background-color: #eaecf0;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border: 1px solid #a2a9b1;
+            border-radius: 3px;
+        }
+        
+        .legend-text {
+            font-size: 0.9em;
+            color: #54595d;
+            font-weight: bold;
+        }
+        
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: modalFade 0.3s;
+        }
+        
+        @keyframes modalFade {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        
+        .modal-header {
+            background: #36c;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            color: white;
+            font-size: 1.3em;
+        }
+        
+        .modal-body {
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .close:hover {
+            color: #ccc;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 1200px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .infobox {
+                float: none;
+                width: 100%;
+                margin: 20px 0;
+            }
+            
+            .map-container {
+                height: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .map-container {
+                height: 400px;
+            }
+            
+            .rod-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-legend {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Сайдбар -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>Қазақ хандығы</h1>
+                <div class="subtitle">Тарихи энциклопедия</div>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Жүздер</h3>
+                <ul class="nav-links">
+                    <li><a href="uly-zhuz.html">Ұлы жүз</a></li>
+                    <li><a href="orta-zhuz.html" style="background-color: #eaecf0; font-weight: bold;">Орта жүз</a></li>
+                    <li><a href="kishi-zhuz.html">Кіші жүз</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Орта жүз рулары</h3>
+                <ul class="nav-links">
+                    <li><a href="#argyn">Арғын</a></li>
+                    <li><a href="#nayman">Найман</a></li>
+                    <li><a href="#kypshak">Қыпшақ</a></li>
+                    <li><a href="#kerey">Керей</a></li>
+                    <li><a href="#uak">Уақ</a></li>
+                    <li><a href="#kongyrat">Қоңырат</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3>Бөлімдер</h3>
+                <ul class="nav-links">
+                    <li><a href="#introduction">Кіріспе</a></li>
+                    <li><a href="#map">Карта</a></li>
+                    <li><a href="#rods">Негізгі рулар</a></li>
+                    <li><a href="#history">Тарихы</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <header class="article-header">
+                <h1>Орта жүз</h1>
+                <div class="article-meta">
+                    Қазақ хандығының орталық бөлігі (Средний жуз)
+                </div>
+            </header>
+
+            <!-- Инфобокс -->
+            <aside class="infobox">
+                <h3>Орта жүз</h3>
+                <div class="infobox-row">
+                    <div class="infobox-label">Ауданы:</div>
+                    <div class="infobox-value">Орталық және Шығыс Қазақстан</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Негізгі рулар:</div>
+                    <div class="infobox-value">6 негізгі ру</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Халқы:</div>
+                    <div class="infobox-value">40% қазақтар</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Тарихи орталық:</div>
+                    <div class="infobox-value">Қарағанды, Астана</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Белгілі тұлғалар:</div>
+                    <div class="infobox-value">Абылай хан, Қабанбай батыр</div>
+                </div>
+            </aside>
+
+            <!-- Введение -->
+            <section id="introduction" class="content-block">
+                <h2>Кіріспе</h2>
+                <p><b>Орта жүз</b> - қазақ хандығының үш негізгі бөлігінің бірі, орталық және шығыс аймақтарын алып жатқан тарихи-географиялық бірлестік. Орта жүз қазақ тарихында, саясатында және мәдениетінде маңызды рөл атқарды.</p>
+                
+                <p>Орта жүздің негізгі ерекшелігі - оның стратегиялық орналасуы және саны жағынан ең үлкен руларды қамтыуы. Бұл аймақ қазақ мемлекеттілігінің орталығы болып табылады.</p>
+            </section>
+
+            <!-- Карта -->
+            <section id="map" class="content-block">
+                <h2>Карта</h2>
+                <p>Орта жүз руларының тарихи орналасу картасы:</p>
+                
+                <div class="map-section">
+                    <div class="map-container">
+                        <img src="https://preview.redd.it/the-map-of-setting-kazakh-clans-xix-the-beginning-of-xx-v0-mqz80msw04na1.png?auto=webp&s=4ab04ebf20072711ce907fc5d89e3ecd86e50215" 
+                             alt="Орта жүз руларының картасы" 
+                             class="map-image">
+                    </div>
+                    
+                    <div class="map-legend">
+                        <div class="legend-item" data-rod="argyn">
+                            <div class="legend-color" style="background: #3498db;"></div>
+                            <div class="legend-text">Арғын</div>
+                        </div>
+                        <div class="legend-item" data-rod="nayman">
+                            <div class="legend-color" style="background: #2ecc71;"></div>
+                            <div class="legend-text">Найман</div>
+                        </div>
+                        <div class="legend-item" data-rod="kypshak">
+                            <div class="legend-color" style="background: #9b59b6;"></div>
+                            <div class="legend-text">Қыпшақ</div>
+                        </div>
+                        <div class="legend-item" data-rod="kerey">
+                            <div class="legend-color" style="background: #f1c40f;"></div>
+                            <div class="legend-text">Керей</div>
+                        </div>
+                        <div class="legend-item" data-rod="uak">
+                            <div class="legend-color" style="background: #e67e22;"></div>
+                            <div class="legend-text">Уақ</div>
+                        </div>
+                        <div class="legend-item" data-rod="kongyrat">
+                            <div class="legend-color" style="background: #e74c3c;"></div>
+                            <div class="legend-text">Қоңырат</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-caption">
+                    Орта жүз руларының XIX-XX ғасырлардағы орналасу картасы
+                </div>
+            </section>
+
+            <!-- Основные роды -->
+            <section id="rods" class="content-block">
+                <h2>Негізгі рулар</h2>
+                <p>Орта жүзге 6 негізгі ру кіреді, олардың әрқайсысының өзіндік тарихы, мәдениеті және саны бар:</p>
+
+                <div class="rod-grid">
+                    <div class="rod-card" data-rod="argyn">
+                        <h4>Арғын</h4>
+                        <p><b>Орналасуы:</b> Орталық Қазақстан</p>
+                        <p><b>Тарихы:</b> Орта жүздің ең үлкен руы</p>
+                        <div class="rod-structure">
+                            <strong>Негізгі тармақтар:</strong>
+                            <ul>
+                                <li>Ақжол</li>
+                                <li>Қаракесек</li>
+                                <li>Қуандық</li>
+                                <li>Сүйіндік</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="rod-card" data-rod="nayman">
+                        <h4>Найман</h4>
+                        <p><b>Орналасуы:</b> Шығыс Қазақстан</p>
+                        <p><b>Тарихы:</b> Көне тарихы бар ру</p>
+                        <div class="rod-structure">
+                            <strong>Негізгі тармақтар:</strong>
+                            <ul>
+                                <li>Садыр</li>
+                                <li>Матай</li>
+                                <li>Қаратай</li>
+                                <li>Төреғұл</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="rod-card" data-rod="kypshak">
+                        <h4>Қыпшақ</h4>
+                        <p><b>Орналасуы:</b> Солтүстік Қазақстан</p>
+                        <p><b>Тарихы:</b> Даланың батырлары</p>
+                        <div class="rod-structure">
+                            <strong>Негізгі тармақтар:</strong>
+                            <ul>
+                                <li>Қара-Қыпшақ</li>
+                                <li>Қулан-Қыпшақ</li>
+                                <li>Сары-Қыпшақ</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="rod-card" data-rod="kerey">
+                        <h4>Керей</h4>
+                        <p><b>Орналасуы:</b> Шығыс шекара</p>
+                        <p><b>Тарихы:</b> Көне тарихы бар ру</p>
+                        <div class="rod-structure">
+                            <strong>Негізгі тармақтар:</strong>
+                            <ul>
+                                <li>Абақ</li>
+                                <li>Ашамайлы</li>
+                                <li>Ысты</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="rod-card" data-rod="uak">
+                        <h4>Уақ</h4>
+                        <p><b>Орналасуы:</b> Солтүстік-шығыс</p>
+                        <p><b>Тарихы:</b> Шығыс аймақтарда</p>
+                        <div class="rod-structure">
+                            <strong>Негізгі тармақтар:</strong>
+                            <ul>
+                                <li>Есен</li>
+                                <li>Ырғыз</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="rod-card" data-rod="kongyrat">
+                        <h4>Қоңырат </h4>
+                        <p><b>Орналасуы:</b> Шығыс өңірлер</p>
+                        <p><b>Тарихы:</b> Шығыс аймақтарда</p>
+                        <div class="rod-structure">
+                            <strong>Негізгі тармақтар:</strong>
+                            <ul>
+                                <li>Бақтияр</li>
+                                <li>Жаман</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- История -->
+            <section id="history" class="content-block">
+                <h2>Тарихы</h2>
+                
+                <h3>Қалыптасуы</h3>
+                <p>Орта жүз қазақ хандығының негізгі бөлігі ретінде XV-XVI ғасырларда қалыптасты. Бұл аймақ тарих бойы қазақ мемлекеттілігінің орталығы болып келді.</p>
+                
+                <h3>Жоңғар соғыстарындағы рөлі</h3>
+                <p>XVIII ғасырдағы жоңғар шапқыншылығы кезінде Орта жүз батырлары (Қабанбай, Бөгенбай т.б.) елді қорғауда шешуші рөл атқарды.</p>
+                
+                <h3>Қазіргі заман</h3>
+                <p>Қазіргі уақытта Орта жүз аймағы Қазақстанның экономикалық және саяси орталығы болып табылады.</p>
+            </section>
+        </main>
+    </div>
+
+    <!-- Модальное окно для информации о роде -->
+    <div id="rodModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h3 id="modalTitle">Род атауы</h3>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent">
+                    <!-- Контент будет заполнен JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Данные о родах
+        const rodData = {
+            'argyn': {
+                title: 'Арғын руы',
+                content: `
+                    <p><strong>Арғын</strong> - Орта жүздің ең үлкен және ең көп таралған руы.</p>
+                    <h4>Тарихы:</h4>
+                    <p>Арғындар қазақ тарихында маңызды рөл атқарды. Олардың ішінен көптеген белгілі тұлғалар, батырлар және билер шыққан.</p>
+                    <h4>Негізгі тармақтары:</h4>
+                    <ul>
+                        <li><strong>Ақжол</strong> - ең үлкен тармақ</li>
+                        <li><strong>Қаракесек</strong> - тарихи маңызы бар тармақ</li>
+                        <li><strong>Қуандық</strong> - орталық аймақтарда</li>
+                        <li><strong>Сүйіндік</strong> - шығыс аймақтарда</li>
+                    </ul>
+                    <h4>Тарихи тұлғалар:</h4>
+                    <p>Абылай хан, Кенесары хан, Ақан сері т.б.</p>
+                `
+            },
+            'nayman': {
+                title: 'Найман руы',
+                content: `
+                    <p><strong>Найман</strong> - көне тарихы бар маңызды ру.</p>
+                    <h4>Тарихы:</h4>
+                    <p>Наймандар моңғол империясы дәуірінен белгілі. Олар қазақ даласының шығыс бөлігінде орналасқан.</p>
+                    <h4>Негізгі тармақтары:</h4>
+                    <ul>
+                        <li><strong>Садыр</strong> - ірі тармақ</li>
+                        <li><strong>Матай</strong> - тарихи маңызы бар</li>
+                        <li><strong>Қаратай</strong> - шығыс аймақтарда</li>
+                        <li><strong>Төреғұл</strong> - оңтүстік-шығыста</li>
+                    </ul>
+                    <h4>Тарихи тұлғалар:</h4>
+                    <p>Қабанбай батыр, Дүйсенбай би т.б.</p>
+                `
+            },
+            'kypshak': {
+                title: 'Қыпшақ руы',
+                content: `
+                    <p><strong>Қыпшақ</strong> - әскери дағдыларымен танымал ру.</p>
+                    <h4>Тарихы:</h4>
+                    <p>Қыпшақтар ежелгі Дешті Қыпшақтың тұрғындары. Олардың ата-бабалары көне қыпшақ тайпалары болған.</p>
+                    <h4>Негізгі тармақтары:</h4>
+                    <ul>
+                        <li><strong>Қара-Қыпшақ</strong> - солтүстік аймақтарда</li>
+                        <li><strong>Қулан-Қыпшақ</strong> - орталық аймақтарда</li>
+                        <li><strong>Сары-Қыпшақ</strong> - оңтүстік аймақтарда</li>
+                    </ul>
+                    <h4>Тарихи тұлғалар:</h4>
+                    <p>Көптеген белгілі әскери қолбасшылар шыққан.</p>
+                `
+            },
+            'kerey': {
+                title: 'Керей руы',
+                content: `
+                    <p><strong>Керей</strong> - көне тарихы бар, шығыс шекараны қорғаған ру.</p>
+                    <h4>Тарихы:</h4>
+                    <p>Керейлер қазақ хандығының шығыс шекарасын қорғауда маңызды рөл атқарды.</p>
+                    <h4>Негізгі тармақтары:</h4>
+                    <ul>
+                        <li><strong>Абақ</strong> - ірі тармақ</li>
+                        <li><strong>Ашамайлы</strong> - шығыс аймақтарда</li>
+                        <li><strong>Ысты</strong> - шекаралық аймақтарда</li>
+                    </ul>
+                `
+            },
+            'uak': {
+                title: 'Уақ руы',
+                content: `
+                    <p><strong>Уақ</strong> - Орта жүздің шағын бірақ тарихи маңызы бар руы.</p>
+                    <h4>Тарихы:</h4>
+                    <p>Уақ руы қазақ хандығының солтүстік-шығыс аймақтарында орналасқан.</p>
+                    <h4>Негізгі тармақтары:</h4>
+                    <ul>
+                        <li><strong>Есен</strong> - негізгі тармақ</li>
+                        <li><strong>Ырғыз</strong> - шығыс аймақтарда</li>
+                    </ul>
+                `
+            },
+            'kongyrat': {
+                title: 'Қоңырат  руы',
+                content: `
+                    <p><strong>Қоңырат</strong> - Орта жүздің шығыс аймақтарында орналасқан руы.</p>
+                    <h4>Тарихы:</h4>
+                    <p>Қоңырат руы қазақ даласының шығыс бөлігіндегі тарихи орналасуымен ерекшеленеді.</p>
+                    <h4>Негізгі тармақтары:</h4>
+                    <ul>
+                        <li><strong>Бақтияр</strong> - негізгі тармақ</li>
+                        <li><strong>Жаман</strong> - шығыс аймақтарда</li>
+                    </ul>
+                `
+            }
+        };
+
+        const modal = document.getElementById('rodModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContent = document.getElementById('modalContent');
+        const closeBtn = document.querySelector('.close');
+
+        function openModal(rodId) {
+            if (rodData[rodId]) {
+                modalTitle.textContent = rodData[rodId].title;
+                modalContent.innerHTML = rodData[rodId].content;
+                modal.style.display = 'block';
+            }
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        
+        document.querySelectorAll('.rod-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const rodId = this.getAttribute('data-rod');
+                openModal(rodId);
+            });
+        });
+
+        document.querySelectorAll('.legend-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const rodId = this.getAttribute('data-rod');
+                openModal(rodId);
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
