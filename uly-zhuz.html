@@ -29,7 +29,6 @@
             min-height: 100vh;
         }
         
-        /* Сайдбар */
         .sidebar {
             width: 300px;
             background: rgba(248, 249, 250, 0.95);
@@ -97,7 +96,6 @@
             background-color: #eaecf0;
         }
         
-        /* Основной контент */
         .main-content {
             margin-left: 300px;
             padding: 30px;
@@ -142,14 +140,6 @@
             font-weight: normal;
         }
         
-        .content-block h3 {
-            color: #000;
-            font-size: 1.2em;
-            margin: 20px 0 10px 0;
-            font-weight: normal;
-        }
-        
-        /* Инфобокс */
         .infobox {
             float: right;
             width: 300px;
@@ -185,7 +175,6 @@
             width: 60%;
         }
         
-        /* Карта */
         .map-section {
             width: 100%;
             max-width: 900px;
@@ -211,11 +200,10 @@
             background: #f8f9fa;
         }
         
-        /* Сетка родов */
         .rod-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             margin: 20px 0;
         }
         
@@ -223,7 +211,7 @@
             background: #f8f9fa;
             border: 1px solid #a2a9b1;
             border-radius: 3px;
-            padding: 15px;
+            padding: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -237,29 +225,22 @@
         
         .rod-card h4 {
             color: #0645ad;
-            margin-bottom: 8px;
-            font-size: 1.1em;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #c33;
+            padding-bottom: 8px;
         }
         
-        .rod-structure {
-            margin-top: 10px;
-            padding-left: 15px;
-        }
-        
-        .rod-structure li {
-            margin-bottom: 3px;
-            font-size: 0.9em;
-            color: #54595d;
-        }
-
         .rod-population {
             font-size: 0.85em;
             color: #666;
             font-style: italic;
-            margin-top: 5px;
+            margin-top: 10px;
+            padding: 5px;
+            background: rgba(195, 51, 51, 0.1);
+            border-radius: 3px;
         }
         
-        /* Легенда карты */
         .map-legend {
             background: #f8f9fa;
             border-top: 1px solid #a2a9b1;
@@ -297,7 +278,6 @@
             font-weight: bold;
         }
         
-        /* Модальное окно */
         .modal {
             display: none;
             position: fixed;
@@ -357,7 +337,6 @@
             color: #ccc;
         }
         
-        /* Адаптивность */
         @media (max-width: 1200px) {
             .container {
                 flex-direction: column;
@@ -403,7 +382,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Сайдбар -->
         <nav class="sidebar">
             <div class="logo">
                 <h1>Қазақ хандығы</h1>
@@ -422,7 +400,7 @@
             <div class="nav-section">
                 <h3>Ұлы жүз рулары</h3>
                 <ul class="nav-links">
-                    <li><a href="#qaidy">Қайды</a></li>
+                    <li><a href="#qanly">Қаңлы</a></li>
                     <li><a href="#shanyshkyly">Шанышқылы</a></li>
                     <li><a href="#zhalaiyr">Жалайыр</a></li>
                     <li><a href="#sirgeli">Сіргелі</a></li>
@@ -448,16 +426,14 @@
             </div>
         </nav>
 
-        <!-- Основной контент -->
         <main class="main-content">
             <header class="article-header">
                 <h1>Ұлы жүз</h1>
                 <div class="article-meta">
-                    Қазақ хандығының оңтүстік бөлігі (Старший жуз)
+                    Қазақ хандығының оңтүстік бөлігі (Старший жүз)
                 </div>
             </header>
 
-            <!-- Инфобокс -->
             <aside class="infobox">
                 <h3>Ұлы жүз</h3>
                 <div class="infobox-row">
@@ -469,10 +445,6 @@
                     <div class="infobox-value">12 негізгі ру</div>
                 </div>
                 <div class="infobox-row">
-                    <div class="infobox-label">Халқы:</div>
-                    <div class="infobox-value">35% қазақтар</div>
-                </div>
-                <div class="infobox-row">
                     <div class="infobox-label">Тарихи орталық:</div>
                     <div class="infobox-value">Ташкент, Шымкент</div>
                 </div>
@@ -482,15 +454,11 @@
                 </div>
             </aside>
 
-            <!-- Введение -->
             <section id="introduction" class="content-block">
                 <h2>Кіріспе</h2>
                 <p><b>Ұлы жүз</b> - қазақ хандығының үш негізгі бөлігінің бірі, оңтүстік аймақтарын алып жатқан тарихи-географиялық бірлестік. Ұлы жүз ежелгі түркі тайпаларының мұрагері болып саналады.</p>
-                
-                <p>Ұлы жүздің ерекшелігі - оның көне тарихы мен мәдени дәстүрлерін жақсы сақтағандығында. Бұл аймақ қазақ халқының этногенезінде маңызды рөл атқарды.</p>
             </section>
 
-            <!-- Карта -->
             <section id="map" class="content-block">
                 <h2>Карта</h2>
                 <p>Ұлы жүз руларының тарихи орналасу картасы:</p>
@@ -503,9 +471,9 @@
                     </div>
                     
                     <div class="map-legend">
-                        <div class="legend-item" data-rod="qaidy">
+                        <div class="legend-item" data-rod="qanly">
                             <div class="legend-color" style="background: #e74c3c;"></div>
-                            <div class="legend-text">Қайды</div>
+                            <div class="legend-text">Қаңлы</div>
                         </div>
                         <div class="legend-item" data-rod="shanyshkyly">
                             <div class="legend-color" style="background: #3498db;"></div>
@@ -527,438 +495,131 @@
                             <div class="legend-color" style="background: #e67e22;"></div>
                             <div class="legend-text">Сарыүйсін</div>
                         </div>
-                        <div class="legend-item" data-rod="shapirashty">
-                            <div class="legend-color" style="background: #1abc9c;"></div>
-                            <div class="legend-text">Шапырашты</div>
-                        </div>
-                        <div class="legend-item" data-rod="ysty">
-                            <div class="legend-color" style="background: #34495e;"></div>
-                            <div class="legend-text">Ысты</div>
-                        </div>
-                        <div class="legend-item" data-rod="oshakty">
-                            <div class="legend-color" style="background: #d35400;"></div>
-                            <div class="legend-text">Ошақты</div>
-                        </div>
-                        <div class="legend-item" data-rod="alban">
-                            <div class="legend-color" style="background: #8e44ad;"></div>
-                            <div class="legend-text">Албан</div>
-                        </div>
-                        <div class="legend-item" data-rod="suwan">
-                            <div class="legend-color" style="background: #c0392b;"></div>
-                            <div class="legend-text">Суан</div>
-                        </div>
-                        <div class="legend-item" data-rod="dulat">
-                            <div class="legend-color" style="background: #16a085;"></div>
-                            <div class="legend-text">Дулат</div>
-                        </div>
                     </div>
-                </div>
-                
-                <div class="map-caption">
-                    Ұлы жүз руларының XIX-XX ғасырлардағы орналасу картасы
                 </div>
             </section>
 
-            <!-- Основные роды -->
             <section id="rods" class="content-block">
                 <h2>Негізгі рулар</h2>
-                <p>Ұлы жүзге 12 негізгі ру кіреді, олардың әрқайсысының өзіндік тарихы, мәдениеті және саны бар:</p>
+                <p>Ұлы жүзге 12 негізгі ру кіреді:</p>
 
                 <div class="rod-grid">
-                    <div class="rod-card" data-rod="qaidy">
-                        <h4>Қайды</h4>
-                        <p><b>Орналасуы:</b> Оңтүстік Қазақстан</p>
-                        <p><b>Тарихы:</b> Ежелгі түркі тайпасы</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Байжігіт</li>
-                                <li>Балталы</li>
-                                <li>Қыстық</li>
-                            </ul>
-                        </div>
+                    <div class="rod-card" data-rod="qanly">
+                        <h4>Қаңлы</h4>
+                        <p><b>Орналасуы:</b> Оңтүстік Қазақстан және Жетісу</p>
                     </div>
                     
                     <div class="rod-card" data-rod="shanyshkyly">
                         <h4>Шанышқылы</h4>
                         <p><b>Орналасуы:</b> Жетісу аймағы</p>
-                        <p><b>Тарихы:</b> Дулат тайпасынан тараған</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Ақберді</li>
-                                <li>Қараберді</li>
-                                <li>Қожамберді</li>
-                            </ul>
-                        </div>
                     </div>
                     
                     <div class="rod-card" data-rod="zhalaiyr">
                         <h4>Жалайыр</h4>
                         <p><b>Орналасуы:</b> Оңтүстік Қазақстан</p>
-                        <p><b>Тарихы:</b> Ежелгі түркі тайпасы</p>
-                        <div class="rod-population">800-700 мың адам</div>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Ақбиюм</li>
-                                <li>Байыс</li>
-                                <li>Қараша</li>
-                                <li>Сырманақ</li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="rod-card" data-rod="sirgeli">
                         <h4>Сіргелі</h4>
                         <p><b>Орналасуы:</b> Талас аңғары</p>
-                        <p><b>Тарихы:</b> Көне түркі тайпасы</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Ақсіргелі</li>
-                                <li>Қарасіргелі</li>
-                                <li>Құлын</li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="rod-card" data-rod="shaqsham">
                         <h4>Шақшам</h4>
                         <p><b>Орналасуы:</b> Шу аңғары</p>
-                        <p><b>Тарихы:</b> Жетіру тайпасының бірі</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Жаңабай</li>
-                                <li>Қожа</li>
-                                <li>Таз</li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="rod-card" data-rod="saryuysyn">
                         <h4>Сарыүйсін</h4>
                         <p><b>Орналасуы:</b> Оңтүстік-батыс</p>
-                        <p><b>Тарихы:</b> Ұйсын тайпасының мұрагері</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Қараүйсін</li>
-                                <li>Құттықара</li>
-                                <li>Сарыүйсін</li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="rod-card" data-rod="shapirashty">
                         <h4>Шапырашты</h4>
                         <p><b>Орналасуы:</b> Жетісу аймағы</p>
-                        <p><b>Тарихы:</b> Дулат тайпасынан тараған</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Ақберді</li>
-                                <li>Қараберді</li>
-                                <li>Таздар</li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="rod-card" data-rod="ysty">
                         <h4>Ысты</h4>
                         <p><b>Орналасуы:</b> Оңтүстік-шығыс</p>
-                        <p><b>Тарихы:</b> Ежелгі түркі тайпасы</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Қарабатыр</li>
-                                <li>Қожа</li>
-                                <li>Сарыбатыр</li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="rod-card" data-rod="oshakty">
                         <h4>Ошақты</h4>
                         <p><b>Орналасуы:</b> Ташкент маңы</p>
-                        <p><b>Тарихы:</b> Көне түркі тайпасы</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Байошақ</li>
-                                <li>Жаңаошақ</li>
-                                <li>Қараошақ</li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="rod-card" data-rod="alban">
                         <h4>Албан</h4>
                         <p><b>Орналасуы:</b> Талас аңғары</p>
-                        <p><b>Тарихы:</b> Ежелгі түркі тайпасы</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Айт</li>
-                                <li>Қарақоян</li>
-                                <li>Сарықоян</li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="rod-card" data-rod="suwan">
                         <h4>Суан</h4>
                         <p><b>Орналасуы:</b> Шу аңғары</p>
-                        <p><b>Тарихы:</b> Көне суан тайпасы</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Бактияр</li>
-                                <li>Қожамберді</li>
-                                <li>Төртқара</li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="rod-card" data-rod="dulat">
                         <h4>Дулат</h4>
                         <p><b>Орналасуы:</b> Жетісу аймағы</p>
-                        <p><b>Тарихы:</b> Ежелгі дулат тайпасы</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Ботпай</li>
-                                <li>Жаныс</li>
-                                <li>Сыйқым</li>
-                                <li>Шымыр</li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- История -->
             <section id="history" class="content-block">
                 <h2>Тарихы</h2>
-                
-                <h3>Қалыптасуы</h3>
-                <p>Ұлы жүз ежелгі түркі тайпаларының тікелей мұрагері болып табылады. Оның құрамына кірген тайпалардың тарихы біздің заманымызға дейінгі дәуірлерге жетеді.</p>
-                
-                <h3>Ортағасырлық кезең</h3>
-                <p>X-XV ғасырларда Ұлы жүз тайпалары Мәуереннахр және Жетісу өңірлеріндегі мемлекеттердің құрамында болды.</p>
-                
-                <h3>Қазіргі заман</h3>
-                <p>Қазіргі уақытта Ұлы жүз аймағы Қазақстанның оңтүстік аймақтарын қамтиды, бұл өңір еліміздің ауылшаруашылық және мәдени орталығы болып табылады.</p>
+                <p>Ұлы Жүз — қазақ халқының этникалық құрамына енген рулар мен тайпалардың саяси, экономикалық және мәдени бірлестігі.
+                    Ұлы жүз — ең көне тайпалық бірлестіктердің бірі, оның түбірі үйсін және қаңлы дәуірлеріне дейін (б.з.д. II–I ғғ.) созылады. Үйсін мемлекеті Жетісу аймағында орналасып, Қытай деректерінде «Ұсын» аталған. Бұл аймақ кейінгі ғасырларда да Ұлы жүздің этникалық орталығы болып қалды.
+
+Орта ғасырларда Ұлы жүз құрамындағы тайпалар (дулат, албан, суан, шапырашты, жалайыр, сіргелі және басқалар) Жетісу, Іле аңғары, Шу мен Талас өңірлерін мекендеді. Олар Түрк қағанаты, Қарлұқ, Қарахан мемлекеттерімен тығыз байланыста дамыды.
+
+XV–XVI ғасырларда қазақ халқының қалыптасуымен бірге Ұлы жүз Қазақ хандығының маңызды бөлігі болды. Бұл кезеңде Дулат тайпасының билері мен батырлары хандарға тірек болды, ал Жетісу саяси және әскери тұрғыдан стратегиялық аймаққа айналды.
+
+XVIII ғасырда Жоңғар шапқыншылықтары Ұлы жүз жеріне қатты әсер етті. Қалмақтарға қарсы соғыстарда Ұлы жүз батырлары — Қарасай, Наурызбай, Райымбек және басқалар — ерекше рөл атқарды.
+
+1770–1800 жж. Ұлы жүз Ресей империясымен және Қоқан хандығымен күрделі саяси қатынастарда болды. XIX ғасырдың бірінші жартысында Ұлы жүздің көп бөлігі Ресей протекторатына өтті, ал оңтүстік бөліктері Қоқан билігіне қарсы бірнеше рет көтерілістер жасады.
+
+XX ғасырда Ұлы жүз өкілдері Алаш қозғалысына, Түркістан автономиясына, одан кейінгі кеңестік кезеңдегі саяси және мәдени өзгерістерге белсенді араласты.
+                </p>
             </section>
         </main>
     </div>
 
-    <!-- Модальное окно для информации о роде -->
     <div id="rodModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close">&times;</span>
-                <h3 id="modalTitle">Род атауы</h3>
+                <h3 id="modalTitle">Рy атауы</h3>
             </div>
             <div class="modal-body">
-                <div id="modalContent">
-                    <!-- Контент будет заполнен JavaScript -->
-                </div>
+                <div id="modalContent"></div>
             </div>
         </div>
     </div>
 
     <script>
-        // Данные о родах
         const rodData = {
-            'qaidy': {
-                title: 'Қайды руы',
-                content: `
-                    <p><strong>Қайды</strong> - Ұлы жүздің ежелгі түркі тайпаларының бірі.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Қайдылар оңтүстік Қазақстан аймағындағы көне түркі тайпаларының мұрагерлері.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Байжігіт</strong> - ірі тармақ</li>
-                        <li><strong>Балталы</strong> - тарихи маңызы бар</li>
-                        <li><strong>Қыстық</strong> - оңтүстік аймақтарда</li>
-                    </ul>
-                    <h4>Тарихи тұлғалар:</h4>
-                    <p>Көптеген белгілі билер мен батырлар шыққан.</p>
-                `
+            'qanly': {
+                title: 'Қаңлы руы',
+                content: `<p><strong>Қаңлы</strong> — Ұлы жүздің ежелгі руы. Оның тарихы XIII-XIV ғғ-дан бастау алады. </p>
+                          <p>Келдібек Қаңлы — осы рудың алғашқы белгілі көсемдерінің бірі. Олар Семиречье, Талас өңірінде, Сырдария төменгі ағысында және Қаратау етегінде мекендеген.</p>
+                          <p>Қаңлылар Моғолстан мен Ақ-Ордада саяси рөл атқарған, сондай-ақ Қазақ хандығы құрылуында маңызды этникалық бірлік болған.</p>`
             },
             'shanyshkyly': {
                 title: 'Шанышқылы руы',
-                content: `
-                    <p><strong>Шанышқылы</strong> - Ұлы жүздің Жетісу аймағында орналасқан руы.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Шанышқылылар дулат тайпасынан тараған, олар Жетісу өңірінің байырғы тұрғындары.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Ақберді</strong> - негізгі тармақ</li>
-                        <li><strong>Қараберді</strong> - солтүстік аймақтарда</li>
-                        <li><strong>Қожамберді</strong> - шығыс аймақтарда</li>
-                    </ul>
-                `
+                content: `<p><strong>Шанышқылы</strong> — Ұлы жүздің Жетісу аймағында орналасқан руы.</p>`
             },
             'zhalaiyr': {
                 title: 'Жалайыр руы',
-                content: `
-                    <p><strong>Жалайыр</strong> - Ұлы жүздің ірі және тарихи маңызы бар руы.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Жалайырлар ежелгі түркі тайпаларының бірі болып табылады. Олардың тарихы көне замандарға жетеді.</p>
-                    <h4>Халқы:</h4>
-                    <p>800-700 мың адам - Ұлы жүздің ең ірі руларының бірі</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Ақбиюм</strong> - ірі тармақ</li>
-                        <li><strong>Байыс</strong> - тарихи маңызы бар</li>
-                        <li><strong>Қараша</strong> - оңтүстік аймақтарда</li>
-                        <li><strong>Сырманақ</strong> - Сырдария бойында</li>
-                    </ul>
-                    <h4>Тарихи тұлғалар:</h4>
-                    <p>Көптеген белгілі билер мен батырлар шыққан.</p>
-                `
-            },
-            'sirgeli': {
-                title: 'Сіргелі руы',
-                content: `
-                    <p><strong>Сіргелі</strong> - Ұлы жүздің Талас аңғарында орналасқан көне тайпасы.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Сіргелілер Талас аңғарындағы көне түркі тайпаларының мұрагерлері.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Ақсіргелі</strong> - негізгі тармақ</li>
-                        <li><strong>Қарасіргелі</strong> - солтүстік аймақтарда</li>
-                        <li><strong>Құлын</strong> - оңтүстік аймақтарда</li>
-                    </ul>
-                `
-            },
-            'shaqsham': {
-                title: 'Шақшам руы',
-                content: `
-                    <p><strong>Шақшам</strong> - Ұлы жүздің Шу аңғарында орналасқан руы.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Шақшамдар жетіру тайпасының бірі болып саналады.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Жаңабай</strong> - ірі тармақ</li>
-                        <li><strong>Қожа</strong> - орталық аймақтарда</li>
-                        <li><strong>Таз</strong> - шығыс аймақтарда</li>
-                    </ul>
-                `
-            },
-            'saryuysyn': {
-                title: 'Сарыүйсін руы',
-                content: `
-                    <p><strong>Сарыүйсін</strong> - Ұйсын тайпасының тікелей мұрагері.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Сарыүйсіндер ежелгі ұйсын тайпаларының ұрпақтары болып саналады.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Қараүйсін</strong> - солтүстік аймақтарда</li>
-                        <li><strong>Құттықара</strong> - орталық аймақтарда</li>
-                        <li><strong>Сарыүйсін</strong> - оңтүстік аймақтарда</li>
-                    </ul>
-                `
-            },
-            'shapirashty': {
-                title: 'Шапырашты руы',
-                content: `
-                    <p><strong>Шапырашты</strong> - Ұлы жүздің Жетісу аймағында орналасқан руы.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Шапыраштылар дулат тайпасынан тараған, олар Жетісу өңірінің байырғы тұрғындары.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Ақберді</strong> - негізгі тармақ</li>
-                        <li><strong>Қараберді</strong> - солтүстік аймақтарда</li>
-                        <li><strong>Таздар</strong> - шығыс аймақтарда</li>
-                    </ul>
-                `
-            },
-            'ysty': {
-                title: 'Ысты руы',
-                content: `
-                    <p><strong>Ысты</strong> - Ұлы жүздің оңтүстік-шығыс аймағында орналасқан руы.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Ыстылар ежелгі түркі тайпаларының бірі болып саналады.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Қарабатыр</strong> - ірі тармақ</li>
-                        <li><strong>Қожа</strong> - орталық аймақтарда</li>
-                        <li><strong>Сарыбатыр</strong> - шығыс аймақтарда</li>
-                    </ul>
-                `
-            },
-            'oshakty': {
-                title: 'Ошақты руы',
-                content: `
-                    <p><strong>Ошақты</strong> - Ұлы жүздің Ташкент маңында орналасқан руы.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Ошақтылар көне түркі тайпаларының бірі болып саналады.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Байошақ</strong> - негізгі тармақ</li>
-                        <li><strong>Жаңаошақ</strong> - солтүстік аймақтарда</li>
-                        <li><strong>Қараошақ</strong> - оңтүстік аймақтарда</li>
-                    </ul>
-                `
-            },
-            'alban': {
-                title: 'Албан руы',
-                content: `
-                    <p><strong>Албан</strong> - Ұлы жүздің ежелгі түркі тайпаларының бірі.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Албандар Талас аңғарындағы көне түркі тайпаларының мұрагерлері.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Айт</strong> - негізгі тармақ</li>
-                        <li><strong>Қарақоян</strong> - солтүстік аймақтарда</li>
-                        <li><strong>Сарықоян</strong> - оңтүстік аймақтарда</li>
-                    </ul>
-                `
-            },
-            'suwan': {
-                title: 'Суан руы',
-                content: `
-                    <p><strong>Суан</strong> - Шу аңғарында орналасқан көне тайпа.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Суандардың тарихы көне замандарға жетеді, олар Шу өзені бойындағы байырғы тұрғындар.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Бактияр</strong> - ірі тармақ</li>
-                        <li><strong>Қожамберді</strong> - орталық аймақтарда</li>
-                        <li><strong>Төртқара</strong> - шығыс аймақтарда</li>
-                    </ul>
-                `
-            },
-            'dulat': {
-                title: 'Дулат руы',
-                content: `
-                    <p><strong>Дулат</strong> - Ұлы жүздің Жетісу аймағында орналасқан ірі тайпасы.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Дулаттар ежелгі дулат тайпаларының тікелей мұрагерлері болып саналады.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Ботпай</strong> - ірі тармақ</li>
-                        <li><strong>Жаныс</strong> - орталық аймақтарда</li>
-                        <li><strong>Сыйқым</strong> - шығыс аймақтарда</li>
-                        <li><strong>Шымыр</strong> - батыс аймақтарда</li>
-                    </ul>
-                    <h4>Тарихи тұлғалар:</h4>
-                    <p>Көптеген белгілі билер, батырлар және ақындар шыққан.</p>
-                `
+                content: `<p><strong>Жалайыр</strong> — Ұлы жүздің ірі және тарихи маңызы бар руы.</p>`
             }
         };
 
-        // Элементы модального окна
         const modal = document.getElementById('rodModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalContent = document.getElementById('modalContent');
         const closeBtn = document.querySelector('.close');
 
-        // Функция открытия модального окна
         function openModal(rodId) {
             if (rodData[rodId]) {
                 modalTitle.textContent = rodData[rodId].title;
@@ -967,7 +628,6 @@
             }
         }
 
-        // Закрытие модального окна
         closeBtn.onclick = function() {
             modal.style.display = 'none';
         }
@@ -978,7 +638,6 @@
             }
         }
 
-        // Обработчики для карточек родов
         document.querySelectorAll('.rod-card').forEach(card => {
             card.addEventListener('click', function() {
                 const rodId = this.getAttribute('data-rod');
@@ -986,7 +645,6 @@
             });
         });
 
-        // Обработчики для легенды
         document.querySelectorAll('.legend-item').forEach(item => {
             item.addEventListener('click', function() {
                 const rodId = this.getAttribute('data-rod');
@@ -994,7 +652,6 @@
             });
         });
 
-        // Плавная прокрутка
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
