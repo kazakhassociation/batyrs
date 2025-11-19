@@ -214,8 +214,8 @@
         /* Сетка родов */
         .rod-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             margin: 20px 0;
         }
         
@@ -223,7 +223,7 @@
             background: #f8f9fa;
             border: 1px solid #a2a9b1;
             border-radius: 3px;
-            padding: 15px;
+            padding: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -237,19 +237,20 @@
         
         .rod-card h4 {
             color: #0645ad;
-            margin-bottom: 8px;
-            font-size: 1.1em;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #36c;
+            padding-bottom: 8px;
         }
         
-        .rod-structure {
+        .rod-population {
+            font-size: 0.85em;
+            color: #666;
+            font-style: italic;
             margin-top: 10px;
-            padding-left: 15px;
-        }
-        
-        .rod-structure li {
-            margin-bottom: 3px;
-            font-size: 0.9em;
-            color: #54595d;
+            padding: 5px;
+            background: rgba(51, 102, 204, 0.1);
+            border-radius: 3px;
         }
         
         /* Легенда карты */
@@ -420,7 +421,7 @@
                     <li><a href="#kypshak">Қыпшақ</a></li>
                     <li><a href="#kerey">Керей</a></li>
                     <li><a href="#uak">Уақ</a></li>
-                    <li><a href="#kongyrat">Қоңырат</a></li>
+                    <li><a href="#kongyrat">Коңырат</a></li>
                 </ul>
             </div>
 
@@ -456,10 +457,6 @@
                     <div class="infobox-value">6 негізгі ру</div>
                 </div>
                 <div class="infobox-row">
-                    <div class="infobox-label">Халқы:</div>
-                    <div class="infobox-value">40% қазақтар</div>
-                </div>
-                <div class="infobox-row">
                     <div class="infobox-label">Тарихи орталық:</div>
                     <div class="infobox-value">Қарағанды, Астана</div>
                 </div>
@@ -484,7 +481,7 @@
                 
                 <div class="map-section">
                     <div class="map-container">
-                        <img src="https://preview.redd.it/the-map-of-setting-kazakh-clans-xix-the-beginning-of-xx-v0-mqz80msw04na1.png?auto=webp&s=4ab04ebf20072711ce907fc5d89e3ecd86e50215" 
+                        <img src="https://i.redd.it/mqz80msw04na1.png" 
                              alt="Орта жүз руларының картасы" 
                              class="map-image">
                     </div>
@@ -512,7 +509,7 @@
                         </div>
                         <div class="legend-item" data-rod="kongyrat">
                             <div class="legend-color" style="background: #e74c3c;"></div>
-                            <div class="legend-text">Қоңырат</div>
+                            <div class="legend-text">Коңырат</div>
                         </div>
                     </div>
                 </div>
@@ -525,89 +522,37 @@
             <!-- Основные роды -->
             <section id="rods" class="content-block">
                 <h2>Негізгі рулар</h2>
-                <p>Орта жүзге 6 негізгі ру кіреді, олардың әрқайсысының өзіндік тарихы, мәдениеті және саны бар:</p>
+                <p>Орта жүзге 6 негізгі ру кіреді:</p>
 
                 <div class="rod-grid">
                     <div class="rod-card" data-rod="argyn">
                         <h4>Арғын</h4>
                         <p><b>Орналасуы:</b> Орталық Қазақстан</p>
-                        <p><b>Тарихы:</b> Орта жүздің ең үлкен руы</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Қаракесек</li>
-                                <li>Қуандық</li>
-                                <li>Сүйіндік</li>
-                            </ul>
-                        </div>
                     </div>
                     
                     <div class="rod-card" data-rod="nayman">
                         <h4>Найман</h4>
                         <p><b>Орналасуы:</b> Шығыс Қазақстан</p>
-                        <p><b>Тарихы:</b> Көне тарихы бар ру</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Садыр</li>
-                                <li>Матай</li>
-                                <li>Бағаналы</li>
-                            </ul>
-                        </div>
                     </div>
                     
                     <div class="rod-card" data-rod="kypshak">
                         <h4>Қыпшақ</h4>
                         <p><b>Орналасуы:</b> Солтүстік Қазақстан</p>
-                        <p><b>Тарихы:</b> Даланың батырлары</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Қара-Қыпшақ</li>
-                                <li>Қулан-Қыпшақ</li>
-                                <li>Сары-Қыпшақ</li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="rod-card" data-rod="kerey">
                         <h4>Керей</h4>
                         <p><b>Орналасуы:</b> Шығыс шекара</p>
-                        <p><b>Тарихы:</b> Көне тарихы бар ру</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Абақ</li>
-                                <li>Ашамайлы</li>
-                                <li>Тұрғақ</li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="rod-card" data-rod="uak">
                         <h4>Уақ</h4>
                         <p><b>Орналасуы:</b> Солтүстік-шығыс</p>
-                        <p><b>Тарихы:</b> Шығыс аймақтарда</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Есен</li>
-                                <li>Ырғыз</li>
-                            </ul>
-                        </div>
                     </div>
 
                     <div class="rod-card" data-rod="kongyrat">
-                        <h4>Қоңырат </h4>
+                        <h4>Коңырат</h4>
                         <p><b>Орналасуы:</b> Шығыс өңірлер</p>
-                        <p><b>Тарихы:</b> Шығыс аймақтарда</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі тармақтар:</strong>
-                            <ul>
-                                <li>Саңғыл</li>
-                                <li>Тоқболат</li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -615,15 +560,14 @@
             <!-- История -->
             <section id="history" class="content-block">
                 <h2>Тарихы</h2>
+                <p>Орта жүздің қалыптасуы ертедегі қыпшақ, найман, керей, арғын, қоңырат және уақ тайпаларына барып тіреледі. Бұл тайпалар Ертіс, Сарыарқа, Алтай және Тобыл өңірлерінде өмір сүріп, Қимақ, Қыпшақ қағанаты және кейінгі монғол дәуіріндегі ұлыстардың құрамында болды.
+
+XIV–XV ғасырларда қазақ халқының бірігуімен бірге Орта жүз тайпалары Қазақ хандығының орталық аймағына айналды. Арғын, Найман, Керей, Қыпшақ сынды ірі тайпалар саяси және әскери құрылымда маңызды рөл атқарды.
+
+Жоңғар шапқыншылығы кезінде Орта жүз батырлары — Бөгенбай, Қабанбай, Малайсары, Олжабай және басқалар — қазақ жасақтарының негізгі күшін құрады. XVIII ғасырдың ортасынан бастап Орта жүздің көп бөлігі Ресей империясының билігін қабылдады.
+
+XIX–XX ғасырларда Орта жүз өкілдері қазақтың ұлттық қозғалыстарында, ағартушылықта, Алаш қозғалысында және кейінгі саяси-мәдени өзгерістерде белсенді болды</p>
                 
-                <h3>Қалыптасуы</h3>
-                <p>Орта жүз қазақ хандығының негізгі бөлігі ретінде XV-XVI ғасырларда қалыптасты. Бұл аймақ тарих бойы қазақ мемлекеттілігінің орталығы болып келді.</p>
-                
-                <h3>Жоңғар соғыстарындағы рөлі</h3>
-                <p>XVIII ғасырдағы жоңғар шапқыншылығы кезінде Орта жүз батырлары (Қабанбай, Бөгенбай т.б.) елді қорғауда шешуші рөл атқарды.</p>
-                
-                <h3>Қазіргі заман</h3>
-                <p>Қазіргі уақытта Орта жүз аймағы Қазақстанның экономикалық және саяси орталығы болып табылады.</p>
             </section>
         </main>
     </div>
@@ -652,13 +596,6 @@
                     <p><strong>Арғын</strong> - Орта жүздің ең үлкен және ең көп таралған руы.</p>
                     <h4>Тарихы:</h4>
                     <p>Арғындар қазақ тарихында маңызды рөл атқарды. Олардың ішінен көптеген белгілі тұлғалар, батырлар және билер шыққан.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Ақжол</strong> - ең үлкен тармақ</li>
-                        <li><strong>Қаракесек</strong> - тарихи маңызы бар тармақ</li>
-                        <li><strong>Қуандық</strong> - орталық аймақтарда</li>
-                        <li><strong>Сүйіндік</strong> - шығыс аймақтарда</li>
-                    </ul>
                     <h4>Тарихи тұлғалар:</h4>
                     <p>Абылай хан, Кенесары хан, Ақан сері т.б.</p>
                 `
@@ -669,13 +606,6 @@
                     <p><strong>Найман</strong> - көне тарихы бар маңызды ру.</p>
                     <h4>Тарихы:</h4>
                     <p>Наймандар моңғол империясы дәуірінен белгілі. Олар қазақ даласының шығыс бөлігінде орналасқан.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Садыр</strong> - ірі тармақ</li>
-                        <li><strong>Матай</strong> - тарихи маңызы бар</li>
-                        <li><strong>Қаратай</strong> - шығыс аймақтарда</li>
-                        <li><strong>Бағаналы</strong> - оңтүстік-шығыста</li>
-                    </ul>
                     <h4>Тарихи тұлғалар:</h4>
                     <p>Қабанбай батыр, Дүйсенбай би т.б.</p>
                 `
@@ -686,12 +616,6 @@
                     <p><strong>Қыпшақ</strong> - әскери дағдыларымен танымал ру.</p>
                     <h4>Тарихы:</h4>
                     <p>Қыпшақтар ежелгі Дешті Қыпшақтың тұрғындары. Олардың ата-бабалары көне қыпшақ тайпалары болған.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Қара-Қыпшақ</strong> - солтүстік аймақтарда</li>
-                        <li><strong>Қулан-Қыпшақ</strong> - орталық аймақтарда</li>
-                        <li><strong>Сары-Қыпшақ</strong> - оңтүстік аймақтарда</li>
-                    </ul>
                     <h4>Тарихи тұлғалар:</h4>
                     <p>Көптеген белгілі әскери қолбасшылар шыққан.</p>
                 `
@@ -702,12 +626,6 @@
                     <p><strong>Керей</strong> - көне тарихы бар, шығыс шекараны қорғаған ру.</p>
                     <h4>Тарихы:</h4>
                     <p>Керейлер қазақ хандығының шығыс шекарасын қорғауда маңызды рөл атқарды.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Абақ</strong> - ірі тармақ</li>
-                        <li><strong>Ашамайлы</strong> - шығыс аймақтарда</li>
-                        <li><strong>Тұрғақ</strong> - шекаралық аймақтарда</li>
-                    </ul>
                 `
             },
             'uak': {
@@ -716,33 +634,25 @@
                     <p><strong>Уақ</strong> - Орта жүздің шағын бірақ тарихи маңызы бар руы.</p>
                     <h4>Тарихы:</h4>
                     <p>Уақ руы қазақ хандығының солтүстік-шығыс аймақтарында орналасқан.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Есен</strong> - негізгі тармақ</li>
-                        <li><strong>Ырғыз</strong> - шығыс аймақтарда</li>
-                    </ul>
                 `
             },
             'kongyrat': {
-                title: 'Қоңырат  руы',
+                title: 'Коңырат руы',
                 content: `
-                    <p><strong>Қоңырат</strong> - Орта жүздің шығыс аймақтарында орналасқан руы.</p>
+                    <p><strong>Коңырат</strong> - Орта жүздің шығыс аймақтарында орналасқан руы.</p>
                     <h4>Тарихы:</h4>
-                    <p>Қоңырат руы қазақ даласының шығыс бөлігіндегі тарихи орналасуымен ерекшеленеді.</p>
-                    <h4>Негізгі тармақтары:</h4>
-                    <ul>
-                        <li><strong>Саңғыл</strong> - тармақ</li>
-                        <li><strong>Тоқболат</strong> - шығыс аймақтарда</li>
-                    </ul>
+                    <p>Коңырат руы қазақ даласының шығыс бөлігіндегі тарихи орналасуымен ерекшеленеді.</p>
                 `
             }
         };
 
+        // Элементы модального окна
         const modal = document.getElementById('rodModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalContent = document.getElementById('modalContent');
         const closeBtn = document.querySelector('.close');
 
+        // Функция открытия модального окна
         function openModal(rodId) {
             if (rodData[rodId]) {
                 modalTitle.textContent = rodData[rodId].title;
@@ -751,6 +661,7 @@
             }
         }
 
+        // Закрытие модального окна
         closeBtn.onclick = function() {
             modal.style.display = 'none';
         }
@@ -761,7 +672,7 @@
             }
         }
 
-        
+        // Обработчики для карточек родов
         document.querySelectorAll('.rod-card').forEach(card => {
             card.addEventListener('click', function() {
                 const rodId = this.getAttribute('data-rod');
@@ -769,6 +680,7 @@
             });
         });
 
+        // Обработчики для легенды
         document.querySelectorAll('.legend-item').forEach(item => {
             item.addEventListener('click', function() {
                 const rodId = this.getAttribute('data-rod');
@@ -776,6 +688,7 @@
             });
         });
 
+        // Плавная прокрутка
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
