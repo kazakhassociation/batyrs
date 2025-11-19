@@ -29,7 +29,6 @@
             min-height: 100vh;
         }
         
-        /* Сайдбар */
         .sidebar {
             width: 300px;
             background: rgba(248, 249, 250, 0.95);
@@ -97,7 +96,6 @@
             background-color: #eaecf0;
         }
         
-        /* Основной контент */
         .main-content {
             margin-left: 300px;
             padding: 30px;
@@ -142,14 +140,6 @@
             font-weight: normal;
         }
         
-        .content-block h3 {
-            color: #000;
-            font-size: 1.2em;
-            margin: 20px 0 10px 0;
-            font-weight: normal;
-        }
-        
-        /* Инфобокс */
         .infobox {
             float: right;
             width: 300px;
@@ -185,7 +175,6 @@
             width: 60%;
         }
         
-        /* Карта */
         .map-section {
             width: 100%;
             max-width: 900px;
@@ -211,11 +200,10 @@
             background: #f8f9fa;
         }
         
-        /* Сетка родов */
         .rod-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             margin: 20px 0;
         }
         
@@ -223,7 +211,7 @@
             background: #f8f9fa;
             border: 1px solid #a2a9b1;
             border-radius: 3px;
-            padding: 15px;
+            padding: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -237,22 +225,12 @@
         
         .rod-card h4 {
             color: #0645ad;
-            margin-bottom: 8px;
-            font-size: 1.1em;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #690;
+            padding-bottom: 8px;
         }
         
-        .rod-structure {
-            margin-top: 10px;
-            padding-left: 15px;
-        }
-        
-        .rod-structure li {
-            margin-bottom: 3px;
-            font-size: 0.9em;
-            color: #54595d;
-        }
-        
-        /* Легенда карты */
         .map-legend {
             background: #f8f9fa;
             border-top: 1px solid #a2a9b1;
@@ -290,7 +268,6 @@
             font-weight: bold;
         }
         
-        /* Модальное окно */
         .modal {
             display: none;
             position: fixed;
@@ -350,7 +327,6 @@
             color: #ccc;
         }
         
-        /* Адаптивность */
         @media (max-width: 1200px) {
             .container {
                 flex-direction: column;
@@ -396,7 +372,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Сайдбар -->
         <nav class="sidebar">
             <div class="logo">
                 <h1>Қазақ хандығы</h1>
@@ -413,14 +388,11 @@
             </div>
             
             <div class="nav-section">
-                <h3>Кіші жүз рулары</h3>
+                <h3>Кіші жүз тайпалары</h3>
                 <ul class="nav-links">
                     <li><a href="#alimuly">Әлімұлы</a></li>
                     <li><a href="#baiuly">Байұлы</a></li>
                     <li><a href="#zhetiru">Жетіру</a></li>
-                    <li><a href="#qarakesek">Қаракесек</a></li>
-                    <li><a href="#qarasaqal">Қарасақал</a></li>
-                    <li><a href="#tortqara">Төртқара</a></li>
                 </ul>
             </div>
 
@@ -429,13 +401,12 @@
                 <ul class="nav-links">
                     <li><a href="#introduction">Кіріспе</a></li>
                     <li><a href="#map">Карта</a></li>
-                    <li><a href="#rods">Негізгі рулар</a></li>
+                    <li><a href="#rods">Негізгі тайпалар</a></li>
                     <li><a href="#history">Тарихы</a></li>
                 </ul>
             </div>
         </nav>
 
-        <!-- Основной контент -->
         <main class="main-content">
             <header class="article-header">
                 <h1>Кіші жүз</h1>
@@ -444,7 +415,6 @@
                 </div>
             </header>
 
-            <!-- Инфобокс -->
             <aside class="infobox">
                 <h3>Кіші жүз</h3>
                 <div class="infobox-row">
@@ -452,12 +422,8 @@
                     <div class="infobox-value">Батыс Қазақстан</div>
                 </div>
                 <div class="infobox-row">
-                    <div class="infobox-label">Негізгі рулар:</div>
+                    <div class="infobox-label">Негізгі тайпалар:</div>
                     <div class="infobox-value">3 негізгі тайпа</div>
-                </div>
-                <div class="infobox-row">
-                    <div class="infobox-label">Халқы:</div>
-                    <div class="infobox-value">25% қазақтар</div>
                 </div>
                 <div class="infobox-row">
                     <div class="infobox-label">Тарихи орталық:</div>
@@ -469,23 +435,19 @@
                 </div>
             </aside>
 
-            <!-- Введение -->
             <section id="introduction" class="content-block">
                 <h2>Кіріспе</h2>
-                <p><b>Кіші жүз</b> - қазақ хандығының үш негізгі бөлігінің бірі, батыс аймақтарын алып жатқан тарихи-географиялық бірлестік. Кіші жүз қазақ даласының батыс бөлігінде орналасқан.</p>
-                
-                <p>Кіші жүздің ерекшелігі - оның ноғайлы тайпаларымен тығыз байланысы мен Каспий теңізі маңы аймағындағы орналасуында. Бұл аймақ қазақ халқының батыс шекарасын қорғауда маңызды рөл атқарды.</p>
+                <p><b>Кіші жүз</b> - қазақ хандығының үш негізгі бөлігінің бірі, батыс аймақтарын алып жатқан тарихи-географиялық бірлестік.</p>
             </section>
 
-            <!-- Карта -->
             <section id="map" class="content-block">
                 <h2>Карта</h2>
-                <p>Кіші жүз руларының тарихи орналасу картасы:</p>
+                <p>Кіші жүз тайпаларының тарихи орналасу картасы:</p>
                 
                 <div class="map-section">
                     <div class="map-container">
                         <img src="https://i.redd.it/mqz80msw04na1.png" 
-                             alt="Кіші жүз руларының картасы" 
+                             alt="Кіші жүз тайпаларының картасы" 
                              class="map-image">
                     </div>
                     
@@ -504,167 +466,79 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="map-caption">
-                    Кіші жүз руларының XIX-XX ғасырлардағы орналасу картасы
-                </div>
             </section>
 
-            <!-- Основные роды -->
             <section id="rods" class="content-block">
-                <h2>Негізгі рулар</h2>
-                <p>Кіші жүзге 3 негізгі тайпа кіреді, олардың әрқайсысы бірнеше рулардан тұрады:</p>
+                <h2>Негізгі тайпалар</h2>
+                <p>Кіші жүзге 3 негізгі тайпа кіреді:</p>
 
                 <div class="rod-grid">
                     <div class="rod-card" data-rod="alimuly">
                         <h4>Әлімұлы</h4>
                         <p><b>Орналасуы:</b> Орал өңірі</p>
                         <p><b>Тарихы:</b> Ноғайлы тайпалары</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі рулары:</strong>
-                            <ul>
-                                <li>Қаракесек</li>
-                                <li>Қарасақал</li>
-                                <li>Төртқара</li>
-                                <li>Шекті</li>
-                            </ul>
-                        </div>
                     </div>
                     
                     <div class="rod-card" data-rod="baiuly">
                         <h4>Байұлы</h4>
                         <p><b>Орналасуы:</b> Атырау өңірі</p>
                         <p><b>Тарихы:</b> Батыс қазақтары</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі рулары:</strong>
-                            <ul>
-                                <li>Адай</li>
-                                <li>Алаша</li>
-                                <li>Беріш</li>
-                                <li>Жаппас</li>
-                                <li>Маскар</li>
-                                <li>Таз</li>
-                                <li>Ысық</li>
-                            </ul>
-                        </div>
                     </div>
                     
                     <div class="rod-card" data-rod="zhetiru">
                         <h4>Жетіру</h4>
                         <p><b>Орналасуы:</b> Ақтөбе өңірі</p>
                         <p><b>Тарихы:</b> Жеті ру бірлестігі</p>
-                        <div class="rod-structure">
-                            <strong>Негізгі рулары:</strong>
-                            <ul>
-                                <li>Кердери</li>
-                                <li>Керейт</li>
-                                <li>Тама</li>
-                                <li>Тана</li>
-                                <li>Телеу</li>
-                                <li>Құрама</li>
-                                <li>Шомекей</li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- История -->
             <section id="history" class="content-block">
                 <h2>Тарихы</h2>
-                
-                <h3>Қалыптасуы</h3>
-                <p>Кіші жүз XV-XVI ғасырларда Алтын Орданың ыдырауы нәтижесінде қалыптасты. Оның құрамына көптеген ноғайлы тайпалары енді.</p>
-                
-                <h3>Ресей империясымен қарым-қатынас</h3>
-                <p>XVIII-XIX ғасырларда Кіші жүз Ресей империясымен тікелей шекаралас болды, бұл оның тарихына ерекше әсер етті.</p>
-                
-                <h3>Қазіргі заман</h3>
-                <p>Қазіргі уақытта Кіші жүз аймағы Батыс Қазақстан облыстарын қамтиды, бұл өңір мұнай-газ өнеркәсібінің орталығы болып табылады.</p>
+                <p>Кіші жүздің түбірі батыс аймақтағы шежірелік тайпаларға — Әлімұлы, Байұлы және Жетіру бірлестіктеріне негізделеді. Бұл тайпалар ежелгі оғыз, қыпшақ және түрікмен рулық топтарымен тарихи байланыста болып, Каспий маңы, Еділ–Жайық аралығы мен Арал теңізі өңірін қоныстанды.
+
+XV–XVI ғасырларда Қазақ хандығының қалыптасуымен бірге Кіші жүз Батыс Қазақстанның негізгі әскери-экономикалық аймағына айналды. Сауда жолдары, көшпелі мал шаруашылығы және аймақтық ықпал осы жүздің рөлін күшейтті.
+
+XVIII ғасырдағы жоңғар шапқыншылығы, Еділ қалмақтары және башқұрттармен қақтығыстар Кіші жүз тарихында үлкен із қалдырды. Әбілқайыр хан 1731 жылы Ресей протекторатына ант беріп, Кіші жүз алғаш болып Ресей билігін қабылдаған жүз болды.
+
+XIX ғасырда Кіші жүзде Исатай–Махамбет, Кейкі, Сырым Датұлы бастаған азаттық қозғалыстары өрбіді. XX ғасырда Кіші жүз өкілдері қазақтың ұлттық және саяси өмірінде маңызды орын алды.</p>
             </section>
         </main>
     </div>
 
-    <!-- Модальное окно для информации о роде -->
     <div id="rodModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close">&times;</span>
-                <h3 id="modalTitle">Род атауы</h3>
+                <h3 id="modalTitle">Тайпа атауы</h3>
             </div>
             <div class="modal-body">
-                <div id="modalContent">
-                    <!-- Контент будет заполнен JavaScript -->
-                </div>
+                <div id="modalContent"></div>
             </div>
         </div>
     </div>
 
     <script>
-        // Данные о родах
         const rodData = {
             'alimuly': {
                 title: 'Әлімұлы тайпасы',
-                content: `
-                    <p><strong>Әлімұлы</strong> - Кіші жүздің ірі тайпаларының бірі.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Әлімұлы тайпасы ноғайлы тайпаларының тікелей мұрагері болып саналады. Олар Орал өңірінде орналасқан.</p>
-                    <h4>Негізгі рулары:</h4>
-                    <ul>
-                        <li><strong>Қаракесек</strong> - ірі ру</li>
-                        <li><strong>Қарасақал</strong> - тарихи маңызы бар</li>
-                        <li><strong>Төртқара</strong> - орталық аймақтарда</li>
-                        <li><strong>Шекті</strong> - батыс аймақтарда</li>
-                    </ul>
-                    <h4>Тарихи тұлғалар:</h4>
-                    <p>Есет батыр, Сырым Датұлы т.б.</p>
-                `
+                content: `<p><strong>Әлімұлы</strong> - Кіші жүздің ірі тайпаларының бірі.</p>`
             },
             'baiuly': {
                 title: 'Байұлы тайпасы',
-                content: `
-                    <p><strong>Байұлы</strong> - Кіші жүздің Атырау өңірінде орналасқан тайпасы.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Байұлы тайпасы Каспий теңізі маңы аймағындағы байырғы тұрғындар болып саналады.</p>
-                    <h4>Негізгі рулары:</h4>
-                    <ul>
-                        <li><strong>Адай</strong> - ірі ру</li>
-                        <li><strong>Алаша</strong> - тарихи маңызы бар</li>
-                        <li><strong>Беріш</strong> - оңтүстік аймақтарда</li>
-                        <li><strong>Жаппас</strong> - солтүстік аймақтарда</li>
-                        <li><strong>Маскар</strong> - орталық аймақтарда</li>
-                        <li><strong>Таз</strong> - шығыс аймақтарда</li>
-                        <li><strong>Ысық</strong> - оңтүстік-батыста</li>
-                    </ul>
-                `
+                content: `<p><strong>Байұлы</strong> - Кіші жүздің Атырау өңірінде орналасқан тайпасы.</p>`
             },
             'zhetiru': {
                 title: 'Жетіру тайпасы',
-                content: `
-                    <p><strong>Жетіру</strong> - "Жеті ру" деген мағынаны білдіреді.</p>
-                    <h4>Тарихы:</h4>
-                    <p>Жетіру тайпасы жеті негізгі рудың бірлестігінен құралған. Олар Ақтөбе өңірінде орналасқан.</p>
-                    <h4>Негізгі рулары:</h4>
-                    <ul>
-                        <li><strong>Кердери</strong> - ірі ру</li>
-                        <li><strong>Керейт</strong> - тарихи маңызы бар</li>
-                        <li><strong>Тама</strong> - орталық аймақтарда</li>
-                        <li><strong>Тана</strong> - шығыс аймақтарда</li>
-                        <li><strong>Телеу</strong> - оңтүстік аймақтарда</li>
-                        <li><strong>Құрама</strong> - солтүстік аймақтарда</li>
-                        <li><strong>Шомекей</strong> - батыс аймақтарда</li>
-                    </ul>
-                `
+                content: `<p><strong>Жетіру</strong> - "Жеті ру" деген мағынаны білдіреді.</p>`
             }
         };
 
-        // Элементы модального окна
         const modal = document.getElementById('rodModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalContent = document.getElementById('modalContent');
         const closeBtn = document.querySelector('.close');
 
-        // Функция открытия модального окна
         function openModal(rodId) {
             if (rodData[rodId]) {
                 modalTitle.textContent = rodData[rodId].title;
@@ -673,7 +547,6 @@
             }
         }
 
-        // Закрытие модального окна
         closeBtn.onclick = function() {
             modal.style.display = 'none';
         }
@@ -684,7 +557,6 @@
             }
         }
 
-        // Обработчики для карточек родов
         document.querySelectorAll('.rod-card').forEach(card => {
             card.addEventListener('click', function() {
                 const rodId = this.getAttribute('data-rod');
@@ -692,7 +564,6 @@
             });
         });
 
-        // Обработчики для легенды
         document.querySelectorAll('.legend-item').forEach(item => {
             item.addEventListener('click', function() {
                 const rodId = this.getAttribute('data-rod');
@@ -700,7 +571,6 @@
             });
         });
 
-        // Плавная прокрутка
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -715,4 +585,4 @@
         });
     </script>
 </body>
-</html>
+</html>I
