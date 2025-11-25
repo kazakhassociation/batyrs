@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Батырлар туралы тест | Ұлы Дала Батырлары</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%);
+            color: #202122;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #36c;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            color: #000;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #54595d;
+            font-size: 1.1em;
+        }
+        
+        .tabs-container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eaecf0;
+            padding-bottom: 20px;
+        }
+        
+        .tab {
+            background: #eaecf0;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+        
+        .tab:hover {
+            background: #d0d3d9;
+        }
+        
+        .tab.active {
+            background: #36c;
+            color: white;
+        }
+        
+        .quiz-container {
+            display: none;
+        }
+        
+        .quiz-container.active {
+            display: block;
+        }
+        
+        .progress-bar {
+            background: #eaecf0;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            background: #36c;
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .question-counter {
+            text-align: center;
+            color: #54595d;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+        
+        .question-block {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #36c;
+        }
+        
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000;
+            font-size: 1.2em;
+        }
+        
+        .options-list {
+            list-style: none;
+        }
+        
+        .option {
+            margin-bottom: 12px;
+            padding: 15px;
+            background: white;
+            border: 2px solid #eaecf0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1em;
+        }
+        
+        .option:hover {
+            background: #f0f7ff;
+            border-color: #36c;
+        }
+        
+        .option.selected {
+            background: #36c;
+            color: white;
+            border-color: #2a5db0;
+        }
+        
+        .option.correct {
+            background: #2ecc71;
+            color: white;
+            border-color: #27ae60;
+        }
+        
+        .option.incorrect {
+            background: #e74c3c;
+            color: white;
+            border-color: #c0392b;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .nav-btn {
+            background: #36c;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: #2a5db0;
+        }
+        
+        .nav-btn:disabled {
+            background: #a2a9b1;
+            cursor: not-allowed;
+        }
+        
+        .submit-btn {
+            background: #2ecc71;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.2em;
+            display: block;
+            margin: 30px auto;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #27ae60;
+        }
+        
+        .submit-btn:disabled {
+            background: #a2a9b1;
+            cursor: not-allowed;
+        }
+        
+        .result-section {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .score-display {
+            font-size: 3em;
+            color: #36c;
+            margin: 20px 0;
+        }
+        
+        .result-message {
+            font-size: 1.3em;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+        
+        .restart-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .restart-btn:hover {
+            background: #2980b9;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #0645ad;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #a2a9b1;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            background: #eaecf0;
+            text-decoration: none;
+        }
+        
+        .batyr-info {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #36c;
+        }
+        
+        .batyr-name {
+            font-weight: bold;
+            color: #0645ad;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .tabs-container {
+                padding: 20px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Негізгі бетке оралу</a>
+        
+        <header class="header">
+            <h1>Батырлар туралы тест</h1>
+            <p>Қазақ тарихының атақты батырлары туралы біліміңізді тексеріңіз</p>
+        </header>
+
+        <div class="tabs-container">
+            <div class="tabs" id="tabs">
+                <!-- Вкладки будут добавляться динамически -->
+            </div>
+            
+            <!-- Контейнеры для тестов по каждому батыру -->
+            <div id="karasay-quiz" class="quiz-container">
+                <!-- Тест по Карасай батыру -->
+            </div>
+            
+            <div id="akkoz-quiz" class="quiz-container">
+                <!-- Тест по Ақкөз батыру -->
+            </div>
+            
+            <div id="bogenbay-quiz" class="quiz-container">
+                <!-- Тест по Бөгенбай батыру -->
+            </div>
+            
+            <div id="kabanbay-quiz" class="quiz-container">
+                <!-- Тест по Қабанбай батыру -->
+            </div>
+            
+            <div id="nauryzbay-quiz" class="quiz-container">
+                <!-- Тест по Наурызбай батыру -->
+            </div>
+            
+            <div id="raimbek-quiz" class="quiz-container">
+                <!-- Тест по Райымбек батыру -->
+            </div>
+            
+            <div id="syrym-quiz" class="quiz-container">
+                <!-- Тест по Сырым батыру -->
+            </div>
+            
+            <div id="zhamenke-quiz" class="quiz-container">
+                <!-- Тест по Жәменке батыру -->
+            </div>
+            
+            <div id="zhienshora-quiz" class="quiz-container">
+                <!-- Тест по Жиеншора батыру -->
+            </div>
+        </div>
+
+        <div id="result-section" class="result-section">
+            <h2>Тест нәтижесі</h2>
+            <div class="score-display" id="score-display">0/0</div>
+            <div class="result-message" id="result-message"></div>
+            <button class="restart-btn" onclick="restartQuiz()">Тестті қайта бастау</button>
+        </div>
+    </div>
+
+    <script>
+        // Вопросы и ответы по каждому батыру
+        const quizDataByBatyr = {
+            "karasay": {
+                name: "Қарасай батыр",
+                questions: [
+                    {
+                        question: "Қарасай батыр қай жылдары өмір сүрген?",
+                        options: [
+                            "1598-1671 жж",
+                            "1680-1778 жж", 
+                            "1706-1781 жж",
+                            "1692-1770 жж"
+                        ],
+                        correct: 0
+                    },
+                    {
+                        question: "Қарасай батыр қай рудан шыққан?",
+                        options: [
+                            "Найман",
+                            "Шапырашты",
+                            "Ноғайлы",
+                            "Дулат"
+                        ],
+                        correct: 2
+                    },
+                    {
+                        question: "Қарасай батыр қандай шайқаста ерлік көрсеткен?",
+                        options: [
+                            "Аңырақай шайқасы",
+                            "Орбұлақ шайқасы",
+                            "Бұланты шайқасы",
+                            "Жыланды шайқасы"
+                        ],
+                        correct: 1
+                    },
+                    {
+                        question: "Қарасай батырдың лақап аты қандай?",
+                        options: [
+                            "Ер Қарасай",
+                            "Қалмақ қырындысы",
+                            "Дала батыры",
+                            "Ержүрек"
+                        ],
+                        correct: 0
+                    }
+                ]
+            },
+            "akkoz": {
+                name: "Ақкөз батыр",
+                questions: [
+                    {
+                        question: "Ақкөз батыр қандай көтерілістің жетекшісі болды?",
+                        options: [
+                            "1783 жыл көтерілісі",
+                            "1916 жыл көтерілісі",
+                            "1837 жыл көтерілісі", 
+                            "1868 жыл көтерілісі"
+                        ],
+                        correct: 1
+                    },
+                    {
+                        question: "Ақкөз батыр көтерілісті басқарған кезде қанша жаста еді?",
+                        options: [
+                            "45 жаста",
+                            "52 жаста",
+                            "67 жаста",
+                            "75 жаста"
+                        ],
+                        correct: 2
+                    },
+                    {
+                        question: "1916 жылғы көтерілістің негізгі себебі қандай болды?",
+                        options: [
+                            "Патша үкіметінің қара жұмысқа алу жарлығы",
+                            "Астыққа салық салу",
+                            "Жерді тартып алу",
+                            "Малға салық салу"
+                        ],
+                        correct: 0
+                    }
+                ]
+            },
+            "bogenbay": {
+                name: "Бөгенбай батыр",
+                questions: [
+                    {
+                        question: "Бөгенбай батырдың шыққан руы?",
+                        options: [
+                            "Найман",
+                            "Шапырашты", 
+                            "Қанжығалы",
+                            "Дулат"
+                        ],
+                        correct: 1
+                    },
+                    {
+                        question: "Бөгенбай батыр қандай шайқаста ерлік көрсеткен?",
+                        options: [
+                            "Орбұлақ шайқасы",
+                            "Аңырақай шайқасы",
+                            "Бұланты шайқасы",
+                            "Жыланды шайқасы"
+                        ],
+                        correct: 1
+                    },
+                    {
+                        question: "Аңырақай шайқасы қай жылы болды?",
+                        options: [
+                            "1730 ж.", 
+                            "1728 ж.",
+                            "1643 ж.",
+                            "1758 ж."
+                        ],
+                        correct: 0
+                    }
+                ]
+            },
+            "kabanbay": {
+                name: "Қабанбай батыр",
+                questions: [
+                    {
+                        question: "Қабанбай батырдың лақап аты қандай?",
+                        options: [
+                            "Ер Қабанбай",
+                            "Қалмақ қырындысы", 
+                            "Дала батыры",
+                            "Ержүрек"
+                        ],
+                        correct: 1
+                    },
+                    {
+                        question: "Қабанбай батыр қай рудан шыққан?",
+                        options: [
+                            "Найман",
+                            "Шапырашты",
+                            "Ноғайлы",
+                            "Дулат"
+                        ],
+                        correct: 0
+                    },
+                    {
+                        question: "Қай батырдың есімі 'Қалмақ қырындысы' лақап атымен байланысты?",
+                        options: [
+                            "Қарасай батыр",
+                            "Қабанбай батыр", 
+                            "Бөгенбай батыр", 
+                            "Наурызбай батыр"
+                        ],
+                        correct: 1
+                    }
+                ]
+            },
+            "nauryzbay": {
+                name: "Наурызбай батыр",
+                questions: [
+                    {
+                        question: "Наурызбай батыр қай рудан шыққан?",
+                        options: [
+                            "Найман",
+                            "Шапырашты", 
+                            "Қанжығалы", 
+                            "Дулат"
+                        ],
+                        correct: 2
+                    },
+                    {
+                        question: "Наурызбай батыр қандай шайқаста ерлік көрсеткен?",
+                        options: [
+                            "Орбұлақ шайқасы",
+                            "Аңырақай шайқасы",
+                            "Бұланты шайқасы",
+                            "Жыланды шайқасы"
+                        ],
+                        correct: 2
+                    },
+                    {
+                        question: "Бұланты шайқасы қай жылы болды?",
+                        options: [
+                            "1730 ж.",
+                            "1728 ж.", 
+                            "1643 ж.",
+                            "1758 ж."
+                        ],
+                        correct: 1
+                    }
+                ]
+            },
+            "raimbek": {
+                name: "Райымбек батыр",
+                questions: [
+                    {
+                        question: "Райымбек батыр қай қаланың негізін қалаған?",
+                        options: [
+                            "Астана",
+                            "Алматы", 
+                            "Шымкент",
+                            "Қарағанды"
+                        ],
+                        correct: 1
+                    },
+                    {
+                        question: "Райымбек батыр қай рудан шыққан?",
+                        options: [
+                            "Найман",
+                            "Шапырашты",
+                            "Ноғайлы",
+                            "Дулат"
+                        ],
+                        correct: 3
+                    },
+                    {
+                        question: "Қай батыр Алматы қаласының негізін қалаған?",
+                        options: [
+                            "Райымбек батыр", 
+                            "Қарасай батыр",
+                            "Бөгенбай батыр",
+                            "Наурызбай батыр"
+                        ],
+                        correct: 0
+                    }
+                ]
+            },
+            "syrym": {
+                name: "Сырым Датулы",
+                questions: [
+                    {
+                        question: "Сырым Датулы қай жылдары өмір сүрген?",
+                        options: [
+                            "1712-1802 жж",
+                            "1750-1810 жж",
+                            "1720-1797 жж",
+                            "1730-1790 жж"
+                        ],
+                        correct: 0
+                    },
+                    {
+                        question: "Сырым Датулы басқарған көтеріліс қанша жылға созылды?",
+                        options: [
+                            "5 жыл",
+                            "7 жыл",
+                            "11 жыл",
+                            "15 жыл"
+                        ],
+                        correct: 2
+                    },
+                    {
+                        question: "Сырым Датулы қай рудан шыққан?",
+                        options: [
+                            "Шекті",
+                            "Байұлы",
+                            "Алшын",
+                            "Жетіру"
+                        ],
+                        correct: 1
+                    },
+                    {
+                        question: "Сырым Датулының көтерілісі қай жылы басталды?",
+                        options: [
+                            "1775 ж.",
+                            "1783 ж.",
+                            "1792 ж.",
+                            "1801 ж."
+                        ],
+                        correct: 1
+                    }
+                ]
+            },
+            "zhamenke": {
+                name: "Жәменке батыр",
+                questions: [
+                    {
+                        question: "Жәменке батыр қай жылдары өмір сүрген?",
+                        options: [
+                            "1730-1798 жж",
+                            "1755-1820 жж",
+                            "1770-1835 жж",
+                            "1785-1840 жж"
+                        ],
+                        correct: 1
+                    },
+                    {
+                        question: "Жәменке батыр қай рудан шыққан?",
+                        options: [
+                            "Шапырашты",
+                            "Қанжығалы",
+                            "Албан",
+                            "Суан"
+                        ],
+                        correct: 2
+                    },
+                    {
+                        question: "Жәменке батыр қандай шайқаста ерлік көрсеткен?",
+                        options: [
+                            "Аңырақай шайқасы",
+                            "Тәуке хан кезіндегі шайқас",
+                            "Шақшақ Жәнібек көтерілісі",
+                            "Қазақ-жоңғар соғысы"
+                        ],
+                        correct: 2
+                    },
+                    {
+                        question: "Жәменке батыр қай аймақта белсенді болды?",
+                        options: [
+                            "Жетісу",
+                            "Орта жүз",
+                            "Батыс Қазақстан",
+                            "Солтүстік Қазақстан"
+                        ],
+                        correct: 1
+                    }
+                ]
+            },
+            "zhienshora": {
+                name: "Жиеншора батыр",
+                questions: [
+                    {
+                        question: "Жиеншора батыр қай жылдары өмір сүрген?",
+                        options: [
+                            "1740-1805 жж",
+                            "1760-1825 жж",
+                            "1780-1840 жж",
+                            "1790-1850 жж"
+                        ],
+                        correct: 1
+                    },
+                    {
+                        question: "Жиеншора батыр қай рудан шыққан?",
+                        options: [
+                            "Шапырашты",
+                            "Қанжығалы",
+                            "Ысты",
+                            "Ошақты"
+                        ],
+                        correct: 3
+                    },
+                    {
+                        question: "Жиеншора батыр қандай тарихи оқиғаларға қатысқан?",
+                        options: [
+                            "Қазақ-жоңғар соғысы",
+                            "Кенесары көтерілісі",
+                            "Абылай ханның біріктіру саясаты",
+                            "Қазақ хандығының құрылуы"
+                        ],
+                        correct: 1
+                    },
+                    {
+                        question: "Жиеншора батыр қай өңірде белсенді болды?",
+                        options: [
+                            "Сырдария бойы",
+                            "Жетісу",
+                            "Орта жүз",
+                            "Батыс Қазақстан"
+                        ],
+                        correct: 0
+                    }
+                ]
+            }
+        };
+
+        let currentBatyr = "karasay";
+        let currentQuestion = 0;
+        let userAnswers = {};
+        let answeredQuestions = {};
+
+        // Инициализация страницы
+        function initPage() {
+            createTabs();
+            initQuizzes();
+            showQuiz(currentBatyr);
+        }
+
+        // Создание вкладок
+        function createTabs() {
+            const tabsContainer = document.getElementById('tabs');
+            
+            for (const batyrId in quizDataByBatyr) {
+                const button = document.createElement('button');
+                button.className = 'tab';
+                button.textContent = quizDataByBatyr[batyrId].name;
+                button.onclick = () => showQuiz(batyrId);
+                
+                tabsContainer.appendChild(button);
+            }
+            
+            // Активируем первую вкладку
+            tabsContainer.children[0].classList.add('active');
+        }
+
+        // Инициализация всех тестов
+        function initQuizzes() {
+            for (const batyrId in quizDataByBatyr) {
+                userAnswers[batyrId] = new Array(quizDataByBatyr[batyrId].questions.length).fill(null);
+                answeredQuestions[batyrId] = 0;
+                createQuizContainer(batyrId);
+            }
+        }
+
+        // Создание контейнера для теста
+        function createQuizContainer(batyrId) {
+            const quizContainer = document.getElementById(`${batyrId}-quiz`);
+            const batyrData = quizDataByBatyr[batyrId];
+            
+            quizContainer.innerHTML = `
+                <div class="progress-bar">
+                    <div class="progress" id="${batyrId}-progress"></div>
+                </div>
+                
+                <div class="question-counter" id="${batyrId}-question-counter">${batyrData.questions.length} сұрақтың 1-сі</div>
+                
+                <form id="${batyrId}-quiz-form">
+                    <!-- Вопросы будут добавляться динамически -->
+                </form>
+                
+                <div class="navigation">
+                    <button class="nav-btn" id="${batyrId}-prev-btn" disabled>← Алдыңғы</button>
+                    <button class="nav-btn" id="${batyrId}-next-btn">Келесі →</button>
+                </div>
+                
+                <button class="submit-btn" id="${batyrId}-submit-btn" disabled>Тесті аяқтау</button>
+            `;
+            
+            // Инициализация теста
+            displayQuestion(batyrId);
+            updateProgress(batyrId);
+            updateNavigation(batyrId);
+            
+            // Добавление обработчиков событий
+            document.getElementById(`${batyrId}-next-btn`).addEventListener('click', () => nextQuestion(batyrId));
+            document.getElementById(`${batyrId}-prev-btn`).addEventListener('click', () => prevQuestion(batyrId));
+            document.getElementById(`${batyrId}-submit-btn`).addEventListener('click', () => submitQuiz(batyrId));
+        }
+
+        // Показать тест выбранного батыра
+        function showQuiz(batyrId) {
+            // Скрыть все тесты
+            const allQuizzes = document.querySelectorAll('.quiz-container');
+            allQuizzes.forEach(quiz => quiz.classList.remove('active'));
+            
+            // Снять активность со всех вкладок
+            const allTabs = document.querySelectorAll('.tab');
+            allTabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Показать выбранный тест и активировать вкладку
+            document.getElementById(`${batyrId}-quiz`).classList.add('active');
+            document.querySelector(`.tab:nth-child(${getTabIndex(batyrId) + 1})`).classList.add('active');
+            
+            currentBatyr = batyrId;
+        }
+
+        // Получить индекс вкладки
+        function getTabIndex(batyrId) {
+            const batyrIds = Object.keys(quizDataByBatyr);
+            return batyrIds.indexOf(batyrId);
+        }
+
+        // Отображение текущего вопроса
+        function displayQuestion(batyrId) {
+            const quizForm = document.getElementById(`${batyrId}-quiz-form`);
+            const questions = quizDataByBatyr[batyrId].questions;
+            const question = questions[currentQuestion];
+            
+            quizForm.innerHTML = `
+                <div class="question-block">
+                    <div class="question-text">${currentQuestion + 1}. ${question.question}</div>
+                    <ul class="options-list">
+                        ${question.options.map((option, index) => `
+                            <li class="option ${userAnswers[batyrId][currentQuestion] === index ? 'selected' : ''}" 
+                                onclick="selectAnswer('${batyrId}', ${index})">
+                                ${String.fromCharCode(65 + index)}) ${option}
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            document.getElementById(`${batyrId}-question-counter`).textContent = 
+                `${questions.length} сұрақтың ${currentQuestion + 1}-сі`;
+        }
+
+        // Выбор ответа
+        function selectAnswer(batyrId, answerIndex) {
+            userAnswers[batyrId][currentQuestion] = answerIndex;
+            displayQuestion(batyrId);
+            updateProgress(batyrId);
+            updateNavigation(batyrId);
+            
+            // Проверяем, все ли вопросы отвечены
+            answeredQuestions[batyrId] = userAnswers[batyrId].filter(answer => answer !== null).length;
+            const totalQuestions = quizDataByBatyr[batyrId].questions.length;
+            document.getElementById(`${batyrId}-submit-btn`).disabled = answeredQuestions[batyrId] !== totalQuestions;
+        }
+
+        // Обновление прогресс-бара
+        function updateProgress(batyrId) {
+            const questions = quizDataByBatyr[batyrId].questions;
+            const progress = (currentQuestion + 1) / questions.length * 100;
+            document.getElementById(`${batyrId}-progress`).style.width = `${progress}%`;
+        }
+
+        // Обновление навигации
+        function updateNavigation(batyrId) {
+            const questions = quizDataByBatyr[batyrId].questions;
+            document.getElementById(`${batyrId}-prev-btn`).disabled = currentQuestion === 0;
+            document.getElementById(`${batyrId}-next-btn`).disabled = currentQuestion === questions.length - 1;
+        }
+
+        // Следующий вопрос
+        function nextQuestion(batyrId) {
+            const questions = quizDataByBatyr[batyrId].questions;
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                displayQuestion(batyrId);
+                updateProgress(batyrId);
+                updateNavigation(batyrId);
+            }
+        }
+
+        // Предыдущий вопрос
+        function prevQuestion(batyrId) {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                displayQuestion(batyrId);
+                updateProgress(batyrId);
+                updateNavigation(batyrId);
+            }
+        }
+
+        // Отправка теста
+        function submitQuiz(batyrId) {
+            const questions = quizDataByBatyr[batyrId].questions;
+            let score = 0;
+            let resultsHTML = '';
+            
+            // Проверяем ответы и собираем результаты
+            questions.forEach((question, index) => {
+                const isCorrect = userAnswers[batyrId][index] === question.correct;
+                if (isCorrect) score++;
+                
+                resultsHTML += `
+                    <div class="question-block">
+                        <div class="question-text">${index + 1}. ${question.question}</div>
+                        <ul class="options-list">
+                            ${question.options.map((option, optionIndex) => {
+                                let className = 'option';
+                                if (optionIndex === question.correct) className += ' correct';
+                                if (userAnswers[batyrId][index] === optionIndex && !isCorrect) className += ' incorrect';
+                                if (userAnswers[batyrId][index] === optionIndex) className += ' selected';
+                                
+                                return `<li class="${className}">${String.fromCharCode(65 + optionIndex)}) ${option}</li>`;
+                            }).join('')}
+                        </ul>
+                    </div>
+                `;
+            });
+            
+            // Показываем результаты
+            document.getElementById('score-display').textContent = `${score}/${questions.length}`;
+            
+            let message = '';
+            if (score === questions.length) {
+                message = `Керемет! Сіз ${quizDataByBatyr[batyrId].name} туралы керемет білесіз!`;
+            } else if (score >= questions.length * 0.8) {
+                message = `Жақсы! Сіз ${quizDataByBatyr[batyrId].name} туралы жақсы білесіз.`;
+            } else if (score >= questions.length * 0.6) {
+                message = `Жаман емес! Бірақ ${quizDataByBatyr[batyrId].name} туралы әлі үйренетін нәрселер бар.`;
+            } else {
+                message = `${quizDataByBatyr[batyrId].name} туралы көбірек оқып, танысыңыз.`;
+            }
+            
+            document.getElementById('result-message').innerHTML = `
+                <p>${message}</p>
+                <div style="margin-top: 30px;">${resultsHTML}</div>
+            `;
+            
+            document.getElementById(`${batyrId}-quiz-form`).style.display = 'none';
+            document.getElementById(`${batyrId}-submit-btn`).style.display = 'none';
+            document.getElementById(`${batyrId}-quiz`).querySelector('.navigation').style.display = 'none';
+            document.getElementById('result-section').style.display = 'block';
+        }
+
+        // Перезапуск теста
+        function restartQuiz() {
+            const batyrId = currentBatyr;
+            
+            currentQuestion = 0;
+            userAnswers[batyrId] = new Array(quizDataByBatyr[batyrId].questions.length).fill(null);
+            answeredQuestions[batyrId] = 0;
+            
+            document.getElementById(`${batyrId}-quiz-form`).style.display = 'block';
+            document.getElementById(`${batyrId}-submit-btn`).style.display = 'block';
+            document.getElementById(`${batyrId}-quiz`).querySelector('.navigation').style.display = 'flex';
+            document.getElementById('result-section').style.display = 'none';
+            
+            document.getElementById(`${batyrId}-submit-btn`).disabled = true;
+            
+            displayQuestion(batyrId);
+            updateProgress(batyrId);
+            updateNavigation(batyrId);
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>
