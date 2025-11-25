@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аңырақай шайқасы | Ұлы Дала Батырлары</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: 
+                linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+                url('https://images.unsplash.com/photo-1596541223130-5d0c0b0b5c0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #202122;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Сайдбар */
+        .sidebar {
+            width: 300px;
+            background: rgba(248, 249, 250, 0.95);
+            border-right: 1px solid #a2a9b1;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #36c;
+        }
+        
+        .logo h1 {
+            color: #36c;
+            font-size: 1.4em;
+            font-weight: normal;
+        }
+        
+        .logo .subtitle {
+            font-size: 0.9em;
+            color: #54595d;
+            margin-top: 5px;
+        }
+        
+        .nav-section {
+            margin-bottom: 25px;
+        }
+        
+        .nav-section h3 {
+            color: #54595d;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-weight: normal;
+            border-left: 3px solid #36c;
+            padding-left: 10px;
+        }
+        
+        .nav-links {
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-bottom: 8px;
+        }
+        
+        .nav-links a {
+            color: #0645ad;
+            text-decoration: none;
+            font-size: 0.95em;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            background-color: #eaecf0;
+        }
+        
+        /* Основной контент */
+        .main-content {
+            margin-left: 300px;
+            padding: 30px;
+            flex: 1;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+        }
+        
+        .article-header {
+            border-bottom: 1px solid #a2a9b1;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .article-header h1 {
+            font-size: 1.8em;
+            color: #000;
+            font-weight: normal;
+            margin-bottom: 8px;
+        }
+        
+        .article-meta {
+            color: #54595d;
+            font-size: 0.9em;
+        }
+        
+        .content-block {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #a7d7f9;
+            border-radius: 3px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .content-block h2 {
+            color: #000;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eaecf0;
+            font-weight: normal;
+        }
+        
+        .content-block h3 {
+            color: #000;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: normal;
+        }
+        
+        /* Инфобокс */
+        .infobox {
+            float: right;
+            width: 300px;
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            margin: 0 0 20px 20px;
+            padding: 15px;
+            font-size: 0.9em;
+        }
+        
+        .infobox h3 {
+            text-align: center;
+            background: #eaecf0;
+            margin: -15px -15px 10px -15px;
+            padding: 10px;
+            font-size: 1.1em;
+        }
+        
+        .infobox-row {
+            display: flex;
+            margin-bottom: 8px;
+            padding: 4px 0;
+            border-bottom: 1px solid #eaecf0;
+        }
+        
+        .infobox-label {
+            font-weight: bold;
+            width: 40%;
+            color: #54595d;
+        }
+        
+        .infobox-value {
+            width: 60%;
+        }
+        
+        /* Таймлайн */
+        .batyr-timeline {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #36c;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 25px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #36c;
+            border-radius: 50%;
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: #36c;
+        }
+        
+        /* Жыр секция */
+        .zhyr-section {
+            background: #f8f9fa;
+            border-left: 4px solid #36c;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .zhyr-text {
+            color: #54595d;
+            line-height: 1.8;
+        }
+        
+        /* Стили для карты */
+        .battle-map {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            margin: 20px auto;
+            border: 2px solid #a2a9b1;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .battle-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .map-caption {
+            text-align: center;
+            color: #54595d;
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
+        .references {
+            background: #eaecf0;
+            padding: 15px;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        
+        .references h3 {
+            margin-bottom: 10px;
+        }
+        
+        .references ol {
+            padding-left: 20px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 1200px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .infobox {
+                float: none;
+                width: 100%;
+                margin: 20px 0;
+            }
+            
+            .battle-map {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .battle-map {
+                height: 300px;
+            }
+        }
+        
+        /* Дополнительные стили для страницы Аңырақай */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #0645ad;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border: 1px solid #0645ad;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            background-color: #0645ad;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .highlight {
+            background-color: #fffacd;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        .quote {
+            background: #f0f7ff;
+            border-left: 4px solid #0645ad;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        
+        .image-caption {
+            font-style: italic;
+            margin-top: 8px;
+            color: #54595d;
+        }
+        
+        .battle-strategy {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .strategy-item {
+            margin-bottom: 15px;
+        }
+        
+        .strategy-title {
+            font-weight: bold;
+            color: #0645ad;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Сайдбар -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>Ұлы Дала Батырлары</h1>
+                <div class="subtitle">Қазақ ерлік энциклопедиясы</div>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Негізгі бөлімдер</h3>
+                <ul class="nav-links">
+                    <li><a href="index.html">Басты бет</a></li>
+                    <li><a href="#historical-context">Тарихи контекст</a></li>
+                    <li><a href="#participants">Қатысушылар</a></li>
+                    <li><a href="#battle-progress">Шайқас барысы</a></li>
+                    <li><a href="#consequences">Салдарлары</a></li>
+                    <li><a href="#legacy">Мұра</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Батырлар</h3>
+                <ul class="nav-links">
+                    <li><a href="karasay-batyr.html">Қарасай батыр</a></li>
+                    <li><a href="bogenbay-batyr.html">Бөгенбай батыр</a></li>
+                    <li><a href="kabanbay-batyr.html">Қабанбай батыр</a></li>
+                    <li><a href="nauryzbay-batyr.html">Наурызбай батыр</a></li>
+                    <li><a href="raimbek-batyr.html">Райымбек батыр</a></li>
+                    <li><a href="syrym-batyr.html">Сырым батыр</a></li>
+                    <li><a href="ospan-batyr.html">Oспан батыр</a></li>
+                    <li><a href="zhamenke.html">Жәмеңке Мәмбетұлы</a></li>
+                    <li><a href="zhienshora.html">Жиеншора Ақмырзаұлы</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3>Шайқастар</h3>
+                <ul class="nav-links">
+                    <li><a href="orbulaq.html">Орбұлақ шайқасы</a></li>
+                    <li><a href="bulanty.html">Бұланты шайқасы</a></li>
+                    <li><a href="anyraqai.html" style="background-color: #eaecf0;">Аңырақай шайқасы</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3>Қосымша</h3>
+                <ul class="nav-links">
+                    <li><a href="#gallery">Суреттер галереясы</a></li>
+                    <li><a href="#maps">Тарихи карталар</a></li>
+                    <li><a href="#sources">Дереккөздер</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <a href="index.html" class="back-link">&larr; Басты бетке оралу</a>
+            
+            <header class="article-header">
+                <h1>Аңырақай шайқасы (1730)</h1>
+                <div class="article-meta">
+                    Қазақ-жоңғар соғысының шешуші шайқасы
+                </div>
+            </header>
+
+            <!-- Инфобокс -->
+            <aside class="infobox">
+                <h3>Аңырақай шайқасы</h3>
+                <div class="infobox-row">
+                    <div class="infobox-label">Жылы:</div>
+                    <div class="infobox-value">1730</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Орын:</div>
+                    <div class="infobox-value">Аңырақай тауы, Қарағанды облысы</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Нәтиже:</div>
+                    <div class="infobox-value">Қазақтардың шешуші жеңісі</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Қарсыластар:</div>
+                    <div class="infobox-value">Қазақ хандығы және Жоңғар хандығы</div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Қолбасшылар:</div>
+                    <div class="infobox-value">
+                        Қазақ жағынан: Әбілқайыр хан, Бөгенбай батыр, Қабанбай батыр<br>
+                        Жоңғар жағынан: Қалдан-Серен
+                    </div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Әскери күштер:</div>
+                    <div class="infobox-value">
+                        Қазақтар: 30 000-ға жуық<br>
+                        Жоңғарлар: 25 000-ға жуық
+                    </div>
+                </div>
+                <div class="infobox-row">
+                    <div class="infobox-label">Шығындар:</div>
+                    <div class="infobox-value">
+                        Қазақтар: белгісіз<br>
+                        Жоңғарлар: 10 000-ға жуық
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Введение -->
+            <section id="introduction" class="content-block">
+                <h2>Тарихи маңызы</h2>
+                <p>Аңырақай шайқасы (1730) — <span class="highlight">Қазақ хандығы мен Жоңғар хандығының арасындағы соғыста</span> болған шешуші шайқас. Бұл шайқас қазақтар үшін маңызды стратегиялық жеңіске айналды және жоңғар шапқыншылығына қарсы күрестегі ең маңызды шайқастардың бірі болып саналады.</p>
+                
+                <p>Аңырақай шайқасы <span class="highlight">қазақ халқының бірлігін нығайтты</span> және жоңғарларға қарсы күресте біріккен күш құру қажеттілігін көрсетті. Бұл шайқас қазақ сарбаздарының рухын көтерді және жоңғарларға қарсы күресте шешуші рөл атқарды.</p>
+                
+                <div class="quote">
+                    "Аңырақай шайқасы қазақ халқының тағдырын шешкен шешуші шайқас болды. Бұл жеңіс қазақ мемлекеттілігінің сақталуына жол ашты."
+                </div>
+            </section>
+
+            <!-- Исторический контекст -->
+            <section id="historical-context" class="content-block">
+                <h2>Шайқас алдындағы жағдай</h2>
+                
+                <p>XVIII ғасырдың басында жоңғарлар қазақ жерлерінде жиі басып кіре бастады. 1723-1727 жылдар аралығында жоңғарлардың күшті шабуылы қазақтарға үлкен шығын әкелді, бұл кезең тарихта <span class="highlight">"Ақтабан шұбырынды, Алқакөл сұлама"</span> деген атпен белгілі болды.</p>
+                
+                <p>Осы оқиғалардан кейін қазақ ханы Әбілқайыр бастаған қазақ әскерлері жоңғарларға қарсы бірігіп күресуге шешім қабылдады. Біріккен қазақ әскерлері Ұлытау аймағында жиналды.</p>
+                
+                <div class="batyr-timeline">
+                    <h3>Шайқасқа дейінгі оқиғалар</h3>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1723 жыл</span>
+                        <p><b>«Ақтабан шұбырынды»</b> басталды - жоңғарлардың кенеттен шабуылы</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1728 жыл</span>
+                        <p><b>Бұланты шайқасы</b> - қазақтардың алғашқы ірі жеңісі</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1729 жыл</span>
+                        <p><b>Қазақ әскерлерінің бірігуі</b> - Әбілқайыр хан басқарған қазақ әскерлері бірікті</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Участники -->
+            <section id="participants" class="content-block">
+                <h2>Қарсыластары мен қатысушылары</h2>
+                
+                <h3>Қазақ жағы</h3>
+                <p>Қазақ құрамы Әбілқайыр хан басқаруымен, сонымен қатар Бөгенбай, Қабанбай, Наурызбай, Райымбек сияқты батырлар болды. Қазақ әскерінің саны 30 мыңға жуық болды.</p>
+                
+                <ul>
+                    <li><b>Әбілқайыр хан</b> - Кіші жүздің ханы, жалпы қазақ әскерінің бас қолбасшысы</li>
+                    <li><b>Бөгенбай батыр</b> - Шапырашты руының батыры, негізгі шабуыл бөлігін басқарды</li>
+                    <li><b>Қабанбай батыр</b> - Найман руының батыры, "Қалмақ қырындысы" лақап атымен танымал</li>
+                    <li><b>Наурызбай батыр</b> - Қанжығалы руының батыры, Бұланты шайқасының батыры</li>
+                    <li><b>Райымбек батыр</b> - Дулат руының батыры, Алматы қаласының негізін қалаушы</li>
+                </ul>
+                
+                <h3>Жоңғар жағы</h3>
+                <p>Жоңғар әскерін Қалдан-Серен басқарды, олардың саны 25 мыңға жуық болды. Жоңғарлардың негізгі артықшылығы олардың жақсы ұйымдасқан әскері және артиллериясы болды.</p>
+            </section>
+
+            <!-- Ход битвы -->
+            <section id="battle-progress" class="content-block">
+                <h2>Соғыс барысы</h2>
+                
+                <p>Аңырақай шайқасы Қарағанды облысындағы Аңырақай тауының маңында болды. Шайқас бірнеше күнге созылды және екі жақ та ауыр шығынға ұшырады.</p>
+                
+                <p>Шайқас барысында қазақ сарбаздары жоңғар әскерін екіге бөліп, оларды бөлек топтарға бөліп жеңу тактикасын қолданды. Бұл тактика жоңғарлардың саны көп болғанымен, олардың күшін бөлуге мүмкіндік берді.</p>
+                
+                <p>Бөгенбай батыр жоңғарлардың негізгі күштеріне қарсы бағытталған шабуылды басқарды, ал Қабанбай батыр қосымша күштермен жоңғарлардың қанатын сындыруға бағытталды.</p>
+                
+                <div class="battle-strategy">
+                    <h3>Шайқас тактикасы</h3>
+                    <div class="strategy-item">
+                        <div class="strategy-title">Жылдам шабуылдар</div>
+                        <p>Қазақ әскерлері жылдам шабуылдар мен кенет шегінулер арқылы жауды шаршатты</p>
+                    </div>
+                    <div class="strategy-item">
+                        <div class="strategy-title">Флангтық шабуылдар</div>
+                        <p>Қазақтар жоңғар әскерінің қанаттарына шабуыл жасап, оларды орталықтан айырды</p>
+                    </div>
+                    <div class="strategy-item">
+                        <div class="strategy-title">Жергілікті жерді пайдалану</div>
+                        <p>Қазақ батырлары Аңырақай тауының рельефін жақсы пайдаланып, жауды тұзаққа түсірді</p>
+                    </div>
+                </div>
+                
+                <div class="zhyr-section">
+                    <div class="zhyr-text">
+                        "Аңырақайдың аңсарында,<br>
+                        Бөгенбайдың боранды күні,<br>
+                        Жоңғардың жандырған отына,<br>
+                        Батырлардың барып тұрғаны..."
+                    </div>
+                </div>
+            </section>
+
+            <!-- Результаты -->
+            <section id="consequences" class="content-block">
+                <h2>Шайқас нәтижесі</h2>
+                
+                <p>Аңырақай шайқасы қазақ әскерінің шешуші жеңісімен аяқталды. Жоңғар әскерінің 10 мыңға жуығы жойылды, қалғандары қашты. Бұл жеңіс қазақтарға бұрын жоғалтқан жерлерінің көп бөлігін қайтаруға мүмкіндік берді.</p>
+                
+                <p>Жеңіс қазақ халқының рухын көтерді және жоңғарларға қарсы күресте жаңа күш берді. Бұл шайқастан кейін қазақ жерінде бірнеше жыл бойы салыстырмалы тыныштық орнады.</p>
+                
+                <h3>Тарихи салдары</h3>
+                <p>Аңырақай шайқасы қазақтың ұлттық бірлігін нығайтуға септігін тигізді және жоңғарларға қарсы күресте шешуші рөл атқарды. Бұл жеңіс қазақ хандығының бірігу процесін жеделдетті және болашақта қазақ мемлекеттілігінің сақталуына мүмкіндік берді.</p>
+                
+                <p>Шайқас қазақ тарихындағы маңызды бұрылыс нүктесі болды және қазақ халқының тәуелсіздігі мен егемендігі үшін күрес символына айналды.</p>
+            </section>
+
+            <!-- Наследие -->
+            <section id="legacy" class="content-block">
+                <h2>Тарихи мұра</h2>
+                
+                <h3>Ескерткіштер</h3>
+                <p>Аңырақай шайқасының құрметіне бірнеше ескерткіштер салынған. Ең бастысы Қарағанды облысындағы Аңырақай тауының басында орналасқан монумент.</p>
+                
+              <div class="image-container">
+    <img src="https://anatili.kazgazeta.kz/media/2020/12/24/aqyraqai.jpg" alt="Памятник Анракайской битве">
+    <div class="image-caption">Аңырақай шайқасына арналған ескерткіш, Қарағанды облысы</div>
+</div>
+                <h3>Мәдениеттегі бейнесі</h3>
+                <p>Аңырақай шайқасы қазақ әдебиеті мен өнерінде кеңінен көрініс тапқан. Көптеген жырлар, дастандар және тарихи романдар осы шайқасқа арналған.</p>
+                
+                <p>Соңғы жылдары Аңырақай шайқасына арналған бірнеше деректі және көркем фильмдер түсірілді.</p>
+                
+                <h3>Қазіргі заманғы маңызы</h3>
+                <p>Аңырақай шайқасы қазақ халқының ұлттық бірлігі мен тәуелсіздік күресінің символы болып саналады. Ол қазақтардың егеменді мемлекет ретіндегі тарихи негіздерінің бірі болып табылады.</p>
+            </section>
+
+            <!-- Карты -->
+            <section id="maps" class="content-block">
+                <h2>Тарихи карталар</h2>
+                <p>Аңырақай шайқасының орналасқан жері және тарихи жолдар.</p>
+                
+                <div class="battle-map">
+                    <img src="https://abai.kz/content/uploads/2023/03/a-5-1024x636.png" 
+                         alt="Қазақстанның физикалық картасы"
+                         title="Қазақстанның физикалық картасы">
+                </div>
+                <div class="map-caption">
+                    Қазақстанның физикалық картасы - Аңырақай шайқасы Қарағанды облысында болды
+                </div>
+                
+                <h3>Шайқас аймағы</h3>
+                <p>Аңырақай шайқасы Қарағанды облысының оңтүстік-батыс бөлігіндегі Аңырақай тауының маңында болды. Бұл аймақ тарихи түрде қазақтардың маңызды шаруашылық аймағы болған.</p>
+            </section>
+
+            <!-- Источники -->
+            <footer class="references">
+                <h3>Әдебиет тізімі</h3>
+                <ol>
+                    <li>О-58 XVIII ғ. – XX ғ. басындағы қазақ батырлары. Ғылыми мақалалар мен энциклопедиялық материалдар</li>
+                    <li>Қазақстан тарихы. 5 томдық. Алматы: "Қазақ энциклопедиясы", 2010</li>
+                    <li>Жоңғар шапқыншылығы және қазақтардың азаттық күресі. Астана: "Фолиант", 2015</li>
+                    <li>Аңырақай шайқасы: тарихи деректер мен зерттеулер. Қарағанды: "Қарағанды баспасы", 2017</li>
+                    <li>Қазақ хандығының тарихы. Алматы: "Арыс", 2009</li>
+                </ol>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapImage = document.querySelector('.battle-map img');
+            if (mapImage) {
+                mapImage.loading = 'lazy';
+            }
+        });
+    </script>
+</body>
+</html>

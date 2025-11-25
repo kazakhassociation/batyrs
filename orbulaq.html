@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Орбұлақ шайқасы | Ұлы Дала Батырлары</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: 
+                linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+                url('https://images.unsplash.com/photo-1596541223130-5d0c0b0b5c0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #202122;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Сайдбар */
+        .sidebar {
+            width: 300px;
+            background: rgba(248, 249, 250, 0.95);
+            border-right: 1px solid #a2a9b1;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #36c;
+        }
+        
+        .logo h1 {
+            color: #36c;
+            font-size: 1.4em;
+            font-weight: normal;
+        }
+        
+        .logo .subtitle {
+            font-size: 0.9em;
+            color: #54595d;
+            margin-top: 5px;
+        }
+        
+        .nav-section {
+            margin-bottom: 25px;
+        }
+        
+        .nav-section h3 {
+            color: #54595d;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-weight: normal;
+            border-left: 3px solid #36c;
+            padding-left: 10px;
+        }
+        
+        .nav-links {
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-bottom: 8px;
+        }
+        
+        .nav-links a {
+            color: #0645ad;
+            text-decoration: none;
+            font-size: 0.95em;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            background-color: #eaecf0;
+        }
+        
+        /* Основной контент */
+        .main-content {
+            margin-left: 300px;
+            padding: 30px;
+            flex: 1;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+        }
+        
+        .article-header {
+            border-bottom: 1px solid #a2a9b1;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .article-header h1 {
+            font-size: 1.8em;
+            color: #000;
+            font-weight: normal;
+            margin-bottom: 8px;
+        }
+        
+        .article-meta {
+            color: #54595d;
+            font-size: 0.9em;
+        }
+        
+        .content-block {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #a7d7f9;
+            border-radius: 3px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .content-block h2 {
+            color: #000;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eaecf0;
+            font-weight: normal;
+        }
+        
+        .content-block h3 {
+            color: #000;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            font-weight: normal;
+        }
+        
+        /* Инфобокс */
+        .infobox {
+            float: right;
+            width: 300px;
+            background: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            margin: 0 0 20px 20px;
+            padding: 15px;
+            font-size: 0.9em;
+        }
+        
+        .infobox h3 {
+            text-align: center;
+            background: #eaecf0;
+            margin: -15px -15px 10px -15px;
+            padding: 10px;
+            font-size: 1.1em;
+        }
+        
+        .infobox-row {
+            display: flex;
+            margin-bottom: 8px;
+            padding: 4px 0;
+            border-bottom: 1px solid #eaecf0;
+        }
+        
+        .infobox-label {
+            font-weight: bold;
+            width: 40%;
+            color: #54595d;
+        }
+        
+        .infobox-value {
+            width: 60%;
+        }
+        
+        /* Таймлайн */
+        .batyr-timeline {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #36c;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 25px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: #36c;
+            border-radius: 50%;
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: #36c;
+        }
+        
+        /* Жыр секция */
+        .zhyr-section {
+            background: #f8f9fa;
+            border-left: 4px solid #36c;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .zhyr-text {
+            color: #54595d;
+            line-height: 1.8;
+        }
+        
+        /* Стили для карты */
+        .battle-map {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            margin: 20px auto;
+            border: 2px solid #a2a9b1;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .battle-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .map-caption {
+            text-align: center;
+            color: #54595d;
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        
+        .references {
+            background: #eaecf0;
+            padding: 15px;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        
+        .references h3 {
+            margin-bottom: 10px;
+        }
+        
+        .references ol {
+            padding-left: 20px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 1200px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .infobox {
+                float: none;
+                width: 100%;
+                margin: 20px 0;
+            }
+            
+            .battle-map {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .battle-map {
+                height: 300px;
+            }
+        }
+        
+        /* Дополнительные стили для страницы Орбұлақ */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #0645ad;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border: 1px solid #0645ad;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            background-color: #0645ad;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .highlight {
+            background-color: #fffacd;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        .quote {
+            background: #f0f7ff;
+            border-left: 4px solid #0645ad;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        
+        .image-caption {
+            font-style: italic;
+            margin-top: 8px;
+            color: #54595d;
+        }
+        
+        .battle-strategy {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .strategy-item {
+            margin-bottom: 15px;
+        }
+        
+        .strategy-title {
+            font-weight: bold;
+            color: #0645ad;
+            margin-bottom: 5px;
+        }
+        
+        .heroic-feat {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #36c;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .heroic-feat:before {
+            content: '★';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5em;
+            color: #36c;
+        }
+        
+        .monument-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        /* Исправления для избежания конфликтов */
+        .content-with-infobox {
+            overflow: hidden;
+        }
+        
+        .heroic-feat-section {
+            clear: both;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Сайдбар -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>Ұлы Дала Батырлары</h1>
+                <div class="subtitle">Қазақ ерлік энциклопедиясы</div>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Негізгі бөлімдер</h3>
+                <ul class="nav-links">
+                    <li><a href="index.html">Басты бет</a></li>
+                    <li><a href="#historical-context">Тарихи контекст</a></li>
+                    <li><a href="#heroic-feat">Ерлік жетістігі</a></li>
+                    <li><a href="#participants">Қатысушылар</a></li>
+                    <li><a href="#battle-progress">Шайқас барысы</a></li>
+                    <li><a href="#consequences">Салдарлары</a></li>
+                    <li><a href="#legacy">Мұра</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-section">
+                <h3>Батырлар</h3>
+                <ul class="nav-links">
+                    <li><a href="karasay-batyr.html">Қарасай батыр</a></li>
+                    <li><a href="bogenbay-batyr.html">Бөгенбай батыр</a></li>
+                    <li><a href="kabanbay-batyr.html">Қабанбай батыр</a></li>
+                    <li><a href="nauryzbay-batyr.html">Наурызбай батыр</a></li>
+                    <li><a href="raimbek-batyr.html">Райымбек батыр</a></li>
+                    <li><a href="syrym-batyr.html">Сырым батыр</a></li>
+                    <li><a href="ospan-batyr.html">Oспан батыр</a></li>
+                    <li><a href="zhamenke.html">Жәмеңке Мәмбетұлы</a></li>
+                    <li><a href="zhienshora.html">Жиеншора Ақмырзаұлы</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3>Шайқастар</h3>
+                <ul class="nav-links">
+                    <li><a href="orbulaq.html" style="background-color: #eaecf0;">Орбұлақ шайқасы</a></li>
+                    <li><a href="bulanty.html">Бұланты шайқасы</a></li>
+                    <li><a href="anyraqai.html">Аңырақай шайқасы</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-section">
+                <h3>Қосымша</h3>
+                <ul class="nav-links">
+                    <li><a href="#gallery">Суреттер галереясы</a></li>
+                    <li><a href="#maps">Тарихи карталар</a></li>
+                    <li><a href="#sources">Дереккөздер</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <a href="index.html" class="back-link">&larr; Басты бетке оралу</a>
+            
+            <header class="article-header">
+                <h1>Орбұлақ шайқасы (1643)</h1>
+                <div class="article-meta">
+                    Қазақ тарихындағы ең ерлікті шайқастардың бірі
+                </div>
+            </header>
+
+            <div class="content-with-infobox">
+                <!-- Инфобокс -->
+                <aside class="infobox">
+                    <h3>Орбұлақ шайқасы</h3>
+                    <div class="infobox-row">
+                        <div class="infobox-label">Жылы:</div>
+                        <div class="infobox-value">1643</div>
+                    </div>
+                    <div class="infobox-row">
+                        <div class="infobox-label">Орын:</div>
+                        <div class="infobox-value">Орбұлақ өзені бойы, Жетісу өңірі</div>
+                    </div>
+                    <div class="infobox-row">
+                        <div class="infobox-label">Нәтиже:</div>
+                        <div class="infobox-value">Қазақтардың тактикалық жеңісі</div>
+                    </div>
+                    <div class="infobox-row">
+                        <div class="infobox-label">Қарсыластар:</div>
+                        <div class="infobox-value">Қазақ хандығы және Жоңғар хандығы</div>
+                    </div>
+                    <div class="infobox-row">
+                        <div class="infobox-label">Қолбасшылар:</div>
+                        <div class="infobox-value">
+                            Қазақ жағынан: Жәңгір хан, Қарасай батыр<br>
+                            Жоңғар жағынан: Батур-хунтайджи
+                        </div>
+                    </div>
+                    <div class="infobox-row">
+                        <div class="infobox-label">Әскери күштер:</div>
+                        <div class="infobox-value">
+                            Қазақтар: 600 сарбаз<br>
+                            Жоңғарлар: 50 000-ға жуық
+                        </div>
+                    </div>
+                    <div class="infobox-row">
+                        <div class="infobox-label">Шығындар:</div>
+                        <div class="infobox-value">
+                            Қазақтар: 300-ге жуық<br>
+                            Жоңғарлар: 10 000-ға жуық
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Введение -->
+                <section id="introduction" class="content-block">
+                    <h2>Тарихи маңызы</h2>
+                    <p>Орбұлақ шайқасы (1643) — <span class="highlight">Қазақ хандығы мен Жоңғар хандығының арасындағы соғыста</span> болған ең ерлікті шайқастардың бірі. Бұл шайқас тарихта <span class="highlight">600 қазақ сарбазының 50.000 жоңғар әскеріне қарсы тұруымен</span> танымал болды.</p>
+                    
+                    <p>Орбұлақ шайқасы <span class="highlight">қазақ халқының ерлік пен батылдық рухын көрсетті</span> және жоңғар шапқыншылығына қарсы күрестегі алғашқы ірі жеңістердің бірі болды. Бұл шайқас қазақ сарбаздарының шексіз ерлігі мен Отан үшін қан төгуге дайындығын көрсетті.</p>
+                    
+                    <div class="quote">
+                        "Орбұлақ шайқасы - бұл қазақ халқының ерлік пен батылдық рухының тіршілік етуі. 600 батырдың 50.000 жауға қарсы тұруы - бұл тарихта сирек кездесетін қаһармандық."
+                    </div>
+                </section>
+            </div>
+
+            <!-- Героический подвиг -->
+            <section id="heroic-feat" class="content-block heroic-feat-section">
+                <h2>Ерлік жетістігі</h2>
+                
+                <div class="heroic-feat">
+                    <h3>600-дің 50.000-ға қарсы тұруы</h3>
+                    <p>Орбұлақ шайқасының ең таңғажайып жағы - бұл <span class="highlight">600 қазақ сарбазының 50.000 жоңғар әскеріне қарсы тұруы</span>. Бұл арақатынас тарихтағы ең үлкен әскери теңсіздіктердің бірі болып саналады.</p>
+                    
+                    <p>Қарасай батыр басқарған 600 қазақ сарбазы Орбұлақ өзенінің бойында бекініп, жоңғар әскерінің басым күшіне қарсы бірнеше күн бойы қарсылық көрсетті.</p>
+                    
+                    <p>Бұл шайқас қазақ әскери өнерінің дамуында маңызды рөл атқарды және кейінгі ұрпақтарға ерлік пен Отансүйгіштік рухын тәрбиеледі.</p>
+                </div>
+            </section>
+
+            <!-- Исторический контекст -->
+            <section id="historical-context" class="content-block">
+                <h2>Шайқас алдындағы жағдай</h2>
+                
+                <p>XVII ғасырдың ортасында жоңғарлар қазақ жерлерінде жиі басып кіре бастады. Жоңғар хандығы Орталық Азиядағы өз ықпалын кеңейтуге ұмтылды.</p>
+                
+                <p>1643 жылы жоңғарлардың қолбасшысы Батур-хунтайджи 50.000 әскермен Жетісу өңіріне шабуыл жасады. Осы кезде Жәңгір хан мен Қарасай батыр басқарған қазақ әскерлері шешуші шайқасқа дайындалды.</p>
+                
+                <div class="batyr-timeline">
+                    <h3>Шайқасқа дейінгі оқиғалар</h3>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1635 жыл</span>
+                        <p><b>Жоңғар хандығының құрылуы</b> - Батур-хунтайджи жоңғарларды біріктірді</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1640 жыл</span>
+                        <p><b>Қазақ хандығының нығаюы</b> - Жәңгір хан қазақ жерлерін біріктіруді жалғастырды</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">1643 жыл</span>
+                        <p><b>Жоңғар шабуылы</b> - Батур-хунтайджи 50.000 әскермен Жетісуға шабуыл жасады</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Участники -->
+            <section id="participants" class="content-block">
+                <h2>Қарсыластары мен қатысушылары</h2>
+                
+                <h3>Қазақ жағы</h3>
+                <p>Қазақ құрамы Жәңгір хан мен Қарасай батыр басқарды. Негізгі күш ретінде 600 сарбаз болды, олардың көпшілігі елінің тәуелсіздігі үшін қанын төгуге дайын тәжірибелі жауынгерлер болды.</p>
+                
+                <ul>
+                    <li><b>Жәңгір хан</b> - Қазақ хандығының ханы, жалпы қазақ әскерінің бас қолбасшысы</li>
+                    <li><b>Қарасай батыр</b> - Ноғайлы руының батыры, негізгі шабуыл бөлігін басқарды</li>
+                    <li><b>600 қазақ сарбазы</b> - елінің тәуелсіздігі үшін күрескен батырлар</li>
+                </ul>
+                
+                <h3>Жоңғар жағы</h3>
+                <p>Жоңғар әскерін Батур-хунтайджи басқарды, олардың саны 50.000-ға жуық болды. Жоңғарлардың негізгі артықшылығы олардың санының көптігі және жақсы қаруланғандығы болды.</p>
+            </section>
+
+            <!-- Ход битвы -->
+            <section id="battle-progress" class="content-block">
+                <h2>Соғыс барысы</h2>
+                
+                <p>Орбұлақ шайқасы Орбұлақ өзенінің бойында болды. Шайқас бірнеше күнге созылды және екі жақ та ауыр шығынға ұшырады.</p>
+                
+                <p>Шайқас барысында қазақ сарбаздары жоңғар әскерінің басым күшіне қарсы тамаша тактикалық шешімдерді қолданды. Олар Орбұлақ өзенінің бойында бекініп, жоңғар әскерінің шабуылдарын бірнеше рет тойтарып, оларға ауыр шығындар әкелді.</p>
+                
+                <div class="battle-strategy">
+                    <h3>Шайқас тактикасы</h3>
+                    <div class="strategy-item">
+                        <div class="strategy-title">Жергілікті жерді пайдалану</div>
+                        <p>Қазақ сарбаздары Орбұлақ өзенінің бойындағы табиғи бекіністерді жақсы пайдаланды</p>
+                    </div>
+                    <div class="strategy-item">
+                        <div class="strategy-title">Кенеттен шабуылдар</div>
+                        <p>Қазақтар жоңғар әскерінің тылына кенеттен шабуылдар жасап, оларды шатастырды</p>
+                    </div>
+                    <div class="strategy-item">
+                        <div class="strategy-title">Түнгі шабуылдар</div>
+                        <p>Қазақ батырлары түнде шабуыл жасап, жоңғарларды тыныштықта ұстамады</p>
+                    </div>
+                </div>
+                
+                <div class="zhyr-section">
+                    <div class="zhyr-text">
+                        "Орбұлақта от жанып,<br>
+                        Қарасайдың қан төгілді,<br>
+                        Алты жүздің алпысы,<br>
+                        Ел үшін ерлік көрсетті..."
+                    </div>
+                </div>
+            </section>
+
+            <!-- Результаты -->
+            <section id="consequences" class="content-block">
+                <h2>Шайқас нәтижесі</h2>
+                
+                <p>Орбұлақ шайқасы қазақ әскерінің тактикалық жеңісімен аяқталды. Жоңғар әскерінің 10.000-ға жуығы жойылды, ал қалғандары қашуға мәжбүр болды.</p>
+                
+                <p>Қазақтардың шығыны 300-ге жуық болды, бұл жоңғарлардың шығынымен салыстырғанда айтарлықтай аз болды. Бұл жеңіс қазақтарға жоңғар шапқыншылығына қарсы күресте алғашқы ірі жеңіс болды.</p>
+                
+                <h3>Тарихи салдары</h3>
+                <p>Орбұлақ шайқасы қазақтың ұлттық бірлігін нығайтуға септігін тигізді және жоңғарларға қарсы күресте алғашқы ірі жеңіс болды. Бұл жеңіс қазақ хандығының нығаюына жол ашты және болашақта жоңғарларға қарсы күресте қазақтарға сенім берді.</p>
+                
+                <p>Шайқас қазақ тарихындағы маңызды бұрылыс нүктесі болды және қазақ халқының тәуелсіздігі мен егемендігі үшін күрес символына айналды.</p>
+            </section>
+
+            <!-- Наследие -->
+            <section id="legacy" class="content-block">
+                <h2>Тарихи мұра</h2>
+                
+                <h3>Ескерткіштер</h3>
+                <p>Орбұлақ шайқасының құрметіне бірнеше ескерткіштер салынған. Ең бастысы Жетісу өңіріндегі Орбұлақ өзенінің бойында орналасқан монумент.</p>
+                
+                <div class="image-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/kk/thumb/5/5e/%D0%9E%D1%80%D0%B1%D2%B1%D0%BB%D0%B0%D2%9B_%D1%88%D0%B0%D0%B9%D2%9B%D0%B0%D1%81%D1%8B.jpg/574px-%D0%9E%D1%80%D0%B1%D2%B1%D0%BB%D0%B0%D2%9B_%D1%88%D0%B0%D0%B9%D2%9B%D0%B0%D1%81%D1%8B.jpg" alt="Орбұлақ шайқасы туралы сурет">
+                    <div class="image-caption">Орбұлақ шайқасы туралы тарихи сурет</div>
+                </div>
+                
+                <h3>Мәдениеттегі бейнесі</h3>
+                <p>Орбұлақ шайқасы қазақ әдебиеті мен өнерінде кеңінен көрініс тапқан. Көптеген жырлар, дастандар және тарихи романдар осы шайқасқа арналған.</p>
+                
+                <p>Соңғы жылдары Орбұлақ шайқасына арналған бірнеше деректі және көркем фильмдер түсірілді.</p>
+                
+                <h3>Қазіргі заманғы маңызы</h3>
+                <p>Орбұлақ шайқасы қазақ халқының ұлттық бірлігі мен тәуелсіздік күресінің символы болып саналады. Ол қазақтардың егеменді мемлекет ретіндегі тарихи негіздерінің бірі болып табылады.</p>
+                
+                <p>Бұл шайқас қазақ жастарына ерлік пен Отансүйгіштік рухын тәрбиелеуде маңызды рөл атқарады.</p>
+            </section>
+
+            <!-- Карты -->
+            <section id="maps" class="content-block">
+                <h2>Тарихи карталар</h2>
+                <p>Орбұлақ шайқасының орналасқан жері және тарихи жолдар.</p>
+                
+                <div class="battle-map">
+                    <img src="https://avatars.mds.yandex.net/i?id=3abb1e216720563ddffa26f576144c8d81e6b97a-12816737-images-thumbs&n=13" 
+                         alt="Қазақстанның физикалық картасы"
+                         title="Қазақстанның физикалық картасы">
+                </div>
+                <div class="map-caption">
+                    Қазақстанның физикалық картасы - Орбұлақ шайқасы Жетісу өңірінде болды
+                </div>
+                
+                <h3>Шайқас аймағы</h3>
+                <p>Орбұлақ шайқасы Жетісу өңіріндегі Орбұлақ өзенінің бойында болды. Бұл аймақ тарихи түрде қазақтардың маңызды шаруашылық аймағы болған.</p>
+            </section>
+
+            <!-- Источники -->
+            <footer class="references">
+                <h3>Әдебиет тізімі</h3>
+                <ol>
+                    <li>О-58 XVIII ғ. – XX ғ. басындағы қазақ батырлары. Ғылыми мақалалар мен энциклопедиялық материалдар</li>
+                    <li>Қазақстан тарихы. 5 томдық. Алматы: "Қазақ энциклопедиясы", 2010</li>
+                    <li>Жоңғар шапқыншылығы және қазақтардың азаттық күресі. Астана: "Фолиант", 2015</li>
+                    <li>Орбұлақ шайқасы: тарихи деректер мен зерттеулер. Алматы: "Арыс", 2018</li>
+                    <li>Қазақ хандығының тарихы. Алматы: "Арыс", 2009</li>
+                    <li>Қарасай батыр және Орбұлақ шайқасы. Астана: "Фолиант", 2016</li>
+                </ol>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapImage = document.querySelector('.battle-map img');
+            if (mapImage) {
+                mapImage.loading = 'lazy';
+            }
+        });
+    </script>
+</body>
+</html>
