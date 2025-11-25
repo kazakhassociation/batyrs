@@ -9,14 +9,13 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Georgia', serif;
         }
         
         body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%);
+            background: #f8f9fa;
             color: #202122;
             line-height: 1.6;
-            min-height: 100vh;
         }
         
         .container {
@@ -29,11 +28,11 @@
             text-align: center;
             margin-bottom: 40px;
             padding-bottom: 20px;
-            border-bottom: 2px solid #36c;
+            border-bottom: 1px solid #ddd;
         }
         
         .header h1 {
-            font-size: 2.5em;
+            font-size: 2.2em;
             color: #000;
             margin-bottom: 10px;
         }
@@ -45,38 +44,39 @@
         
         .tabs-container {
             background: white;
-            border-radius: 10px;
+            border-radius: 8px;
             padding: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             margin-bottom: 30px;
         }
         
         .tabs {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 30px;
-            border-bottom: 2px solid #eaecf0;
             padding-bottom: 20px;
+            border-bottom: 1px solid #eaecf0;
         }
         
         .tab {
-            background: #eaecf0;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 6px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 10px 16px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 1.1em;
-            transition: all 0.3s;
+            font-size: 0.95em;
+            transition: all 0.2s;
         }
         
         .tab:hover {
-            background: #d0d3d9;
+            background: #e9ecef;
         }
         
         .tab.active {
-            background: #36c;
+            background: #202122;
             color: white;
+            border-color: #202122;
         }
         
         .quiz-container {
@@ -89,14 +89,14 @@
         
         .progress-bar {
             background: #eaecf0;
-            height: 8px;
-            border-radius: 4px;
-            margin-bottom: 25px;
+            height: 6px;
+            border-radius: 3px;
+            margin-bottom: 20px;
             overflow: hidden;
         }
         
         .progress {
-            background: #36c;
+            background: #202122;
             height: 100%;
             width: 0%;
             transition: width 0.3s ease;
@@ -105,23 +105,23 @@
         .question-counter {
             text-align: center;
             color: #54595d;
-            margin-bottom: 25px;
-            font-size: 1.1em;
+            margin-bottom: 20px;
+            font-size: 1em;
         }
         
         .question-block {
-            margin-bottom: 30px;
-            padding: 25px;
+            margin-bottom: 25px;
+            padding: 20px;
             background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #36c;
+            border-radius: 6px;
+            border-left: 3px solid #202122;
         }
         
         .question-text {
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #000;
-            font-size: 1.2em;
+            font-size: 1.1em;
         }
         
         .options-list {
@@ -129,58 +129,45 @@
         }
         
         .option {
-            margin-bottom: 12px;
-            padding: 15px;
+            margin-bottom: 8px;
+            padding: 12px;
             background: white;
-            border: 2px solid #eaecf0;
-            border-radius: 6px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
             cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1.1em;
+            transition: all 0.2s;
+            font-size: 1em;
         }
         
         .option:hover {
-            background: #f0f7ff;
-            border-color: #36c;
+            background: #f0f0f0;
         }
         
         .option.selected {
-            background: #36c;
+            background: #202122;
             color: white;
-            border-color: #2a5db0;
-        }
-        
-        .option.correct {
-            background: #2ecc71;
-            color: white;
-            border-color: #27ae60;
-        }
-        
-        .option.incorrect {
-            background: #e74c3c;
-            color: white;
-            border-color: #c0392b;
+            border-color: #202122;
         }
         
         .navigation {
             display: flex;
             justify-content: space-between;
-            margin-top: 30px;
+            margin-top: 25px;
         }
         
         .nav-btn {
-            background: #36c;
+            background: #202122;
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 6px;
+            padding: 10px 20px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 1.1em;
-            transition: background-color 0.3s;
+            font-size: 1em;
+            transition: background-color 0.2s;
         }
         
         .nav-btn:hover {
-            background: #2a5db0;
+            background: #404244;
         }
         
         .nav-btn:disabled {
@@ -189,20 +176,20 @@
         }
         
         .submit-btn {
-            background: #2ecc71;
+            background: #202122;
             color: white;
             border: none;
-            padding: 15px 40px;
-            border-radius: 6px;
+            padding: 12px 30px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 1.2em;
+            font-size: 1.1em;
             display: block;
-            margin: 30px auto;
-            transition: background-color 0.3s;
+            margin: 25px auto;
+            transition: background-color 0.2s;
         }
         
         .submit-btn:hover {
-            background: #27ae60;
+            background: #404244;
         }
         
         .submit-btn:disabled {
@@ -212,40 +199,40 @@
         
         .result-section {
             text-align: center;
-            padding: 40px;
+            padding: 30px;
             background: white;
-            border-radius: 10px;
+            border-radius: 8px;
             margin-top: 20px;
             display: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(59, 89, 188, 0.1);
         }
         
         .score-display {
-            font-size: 3em;
-            color: #36c;
-            margin: 20px 0;
+            font-size: 2.5em;
+            color: #202122;
+            margin: 15px 0;
         }
         
         .result-message {
-            font-size: 1.3em;
-            margin: 20px 0;
-            line-height: 1.8;
+            font-size: 1.2em;
+            margin: 15px 0;
+            line-height: 1.6;
         }
         
         .restart-btn {
-            background: #3498db;
+            background: #202122;
             color: white;
             border: none;
-            padding: 12px 30px;
-            border-radius: 6px;
+            padding: 10px 25px;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 1.1em;
-            margin-top: 20px;
-            transition: background-color 0.3s;
+            font-size: 1em;
+            margin-top: 15px;
+            transition: background-color 0.2s;
         }
         
         .restart-btn:hover {
-            background: #2980b9;
+            background: #43698f;
         }
         
         .back-link {
@@ -253,29 +240,14 @@
             margin-bottom: 20px;
             color: #0645ad;
             text-decoration: none;
-            padding: 10px 20px;
-            border: 1px solid #a2a9b1;
-            border-radius: 5px;
-            transition: all 0.3s;
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: all 0.2s;
         }
         
         .back-link:hover {
-            background: #eaecf0;
-            text-decoration: none;
-        }
-        
-        .batyr-info {
-            background: #f0f7ff;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            border-left: 4px solid #36c;
-        }
-        
-        .batyr-name {
-            font-weight: bold;
-            color: #0645ad;
-            margin-bottom: 10px;
+            background: #f8f9fa;
         }
         
         @media (max-width: 768px) {
@@ -284,7 +256,7 @@
             }
             
             .header h1 {
-                font-size: 2em;
+                font-size: 1.8em;
             }
             
             .tabs-container {
@@ -312,7 +284,7 @@
         
         <header class="header">
             <h1>Батырлар туралы тест</h1>
-            <p>Қазақ тарихының атақты батырлары туралы біліміңізді тексеріңіз</p>
+            <p>Әр батырға арналған 10 сұрақтан тұратын тест</p>
         </header>
 
         <div class="tabs-container">
@@ -367,50 +339,60 @@
     </div>
 
     <script>
-        // Вопросы и ответы по каждому батыру
+        // Вопросы и ответы по каждому батыру (по 10 вопросов)
         const quizDataByBatyr = {
             "karasay": {
                 name: "Қарасай батыр",
                 questions: [
                     {
                         question: "Қарасай батыр қай жылдары өмір сүрген?",
-                        options: [
-                            "1598-1671 жж",
-                            "1680-1778 жж", 
-                            "1706-1781 жж",
-                            "1692-1770 жж"
-                        ],
+                        options: ["1598-1671 жж", "1680-1778 жж", "1706-1781 жж", "1692-1770 жж"],
                         correct: 0
                     },
                     {
                         question: "Қарасай батыр қай рудан шыққан?",
-                        options: [
-                            "Найман",
-                            "Шапырашты",
-                            "Ноғайлы",
-                            "Дулат"
-                        ],
+                        options: ["Найман", "Шапырашты", "Ноғайлы", "Дулат"],
                         correct: 2
                     },
                     {
                         question: "Қарасай батыр қандай шайқаста ерлік көрсеткен?",
-                        options: [
-                            "Аңырақай шайқасы",
-                            "Орбұлақ шайқасы",
-                            "Бұланты шайқасы",
-                            "Жыланды шайқасы"
-                        ],
+                        options: ["Аңырақай шайқасы", "Орбұлақ шайқасы", "Бұланты шайқасы", "Жыланды шайқасы"],
                         correct: 1
                     },
                     {
                         question: "Қарасай батырдың лақап аты қандай?",
-                        options: [
-                            "Ер Қарасай",
-                            "Қалмақ қырындысы",
-                            "Дала батыры",
-                            "Ержүрек"
-                        ],
+                        options: ["Ер Қарасай", "Қалмақ қырындысы", "Дала батыры", "Ержүрек"],
                         correct: 0
+                    },
+                    {
+                        question: "Орбұлақ шайқасы қай жылы болды?",
+                        options: ["1730 ж.", "1728 ж.", "1643 ж.", "1758 ж."],
+                        correct: 2
+                    },
+                    {
+                        question: "Орбұлақ шайқасында қанша қазақ әскері болды?",
+                        options: ["600", "3000", "15000", "30000"],
+                        correct: 0
+                    },
+                    {
+                        question: "Қарасай батыр қай тайпаның ішіндегі рудан шыққан?",
+                        options: ["Арғын", "Кіші жүз", "Найман", "Қыпшақ"],
+                        correct: 0
+                    },
+                    {
+                        question: "Қарасай батырдың әкесінің аты?",
+                        options: ["Қанай", "Есім", "Болат", "Тәуке"],
+                        correct: 0
+                    },
+                    {
+                        question: "Қарасай батыр қай ханмен бірге соғысқан?",
+                        options: ["Әбілқайыр хан", "Жәнібек хан", "Есім хан", "Тәуке хан"],
+                        correct: 2
+                    },
+                    {
+                        question: "Қарасай батыр туралы негізгі дерек көзі?",
+                        options: ["Шежіре", "Қолжазбалар", "Аңыздар", "Архивтік құжаттар"],
+                        correct: 1
                     }
                 ]
             },
@@ -419,32 +401,52 @@
                 questions: [
                     {
                         question: "Ақкөз батыр қандай көтерілістің жетекшісі болды?",
-                        options: [
-                            "1783 жыл көтерілісі",
-                            "1916 жыл көтерілісі",
-                            "1837 жыл көтерілісі", 
-                            "1868 жыл көтерілісі"
-                        ],
+                        options: ["1783 жыл көтерілісі", "1916 жыл көтерілісі", "1837 жыл көтерілісі", "1868 жыл көтерілісі"],
                         correct: 1
                     },
                     {
                         question: "Ақкөз батыр көтерілісті басқарған кезде қанша жаста еді?",
-                        options: [
-                            "45 жаста",
-                            "52 жаста",
-                            "67 жаста",
-                            "75 жаста"
-                        ],
+                        options: ["45 жаста", "52 жаста", "67 жаста", "75 жаста"],
                         correct: 2
                     },
                     {
                         question: "1916 жылғы көтерілістің негізгі себебі қандай болды?",
-                        options: [
-                            "Патша үкіметінің қара жұмысқа алу жарлығы",
-                            "Астыққа салық салу",
-                            "Жерді тартып алу",
-                            "Малға салық салу"
-                        ],
+                        options: ["Патша үкіметінің қара жұмысқа алу жарлығы", "Астыққа салық салу", "Жерді тартып алу", "Малға салық салу"],
+                        correct: 0
+                    },
+                    {
+                        question: "Ақкөз батыр қай өңірде көтеріліс ұйымдастырды?",
+                        options: ["Жетісу", "Торғай", "Сырдария", "Орал"],
+                        correct: 1
+                    },
+                    {
+                        question: "Ақкөз батырдың толық аты?",
+                        options: ["Ақкөз Қосанұлы", "Ақкөз Жанқожаұлы", "Ақкөз Иманқұлұлы", "Ақкөз Бекболатұлы"],
+                        correct: 0
+                    },
+                    {
+                        question: "Ақкөз батыр қай рудан шыққан?",
+                        options: ["Тама", "Керей", "Тіленші", "Жағалбайлы"],
+                        correct: 3
+                    },
+                    {
+                        question: "1916 жылғы көтеріліс қанша айға созылды?",
+                        options: ["3 ай", "6 ай", "9 ай", "12 ай"],
+                        correct: 1
+                    },
+                    {
+                        question: "Ақкөз батыр қай жылы дүниеге келген?",
+                        options: ["1849 ж.", "1855 ж.", "1862 ж.", "1870 ж."],
+                        correct: 0
+                    },
+                    {
+                        question: "Ақкөз батыр қай жылы қаза тапқан?",
+                        options: ["1922 ж.", "1927 ж.", "1931 ж.", "1935 ж."],
+                        correct: 1
+                    },
+                    {
+                        question: "Ақкөз батыр туралы негізгі дерек көзі?",
+                        options: ["Ресей архивтері", "Ауыз әдебиеті", "Қолжазбалар", "Газет хабарлары"],
                         correct: 0
                     }
                 ]
@@ -454,32 +456,52 @@
                 questions: [
                     {
                         question: "Бөгенбай батырдың шыққан руы?",
-                        options: [
-                            "Найман",
-                            "Шапырашты", 
-                            "Қанжығалы",
-                            "Дулат"
-                        ],
+                        options: ["Найман", "Шапырашты", "Қанжығалы", "Дулат"],
                         correct: 1
                     },
                     {
                         question: "Бөгенбай батыр қандай шайқаста ерлік көрсеткен?",
-                        options: [
-                            "Орбұлақ шайқасы",
-                            "Аңырақай шайқасы",
-                            "Бұланты шайқасы",
-                            "Жыланды шайқасы"
-                        ],
+                        options: ["Орбұлақ шайқасы", "Аңырақай шайқасы", "Бұланты шайқасы", "Жыланды шайқасы"],
                         correct: 1
                     },
                     {
                         question: "Аңырақай шайқасы қай жылы болды?",
-                        options: [
-                            "1730 ж.", 
-                            "1728 ж.",
-                            "1643 ж.",
-                            "1758 ж."
-                        ],
+                        options: ["1730 ж.", "1728 ж.", "1643 ж.", "1758 ж."],
+                        correct: 0
+                    },
+                    {
+                        question: "Бөгенбай батыр қай жылы дүниеге келген?",
+                        options: ["1680 ж.", "1690 ж.", "1700 ж.", "1710 ж."],
+                        correct: 3
+                    },
+                    {
+                        question: "Бөгенбай батыр қай жылы қаза тапқан?",
+                        options: ["1775 ж.", "1780 ж.", "1785 ж.", "1778 ж."],
+                        correct: 1
+                    },
+                    {
+                        question: "Бөгенбай батыр қай тайпаның құрамында болды?",
+                        options: ["Арғын", "Найман", "Кіші жүз", "Орта жүз"],
+                        correct: 0
+                    },
+                    {
+                        question: "Бөгенбай батырдың есімі қай облыстағы ауданға берілген?",
+                        options: ["Ақтөбе", "Қостанай", "Павлодар", "Шығыс Қазақстан"],
+                        correct: 1
+                    },
+                    {
+                        question: "Бөгенбай батыр қай ханның тұсында өмір сүрді?",
+                        options: ["Әбілқайыр хан", "Абылай хан", "Жолбарыс хан", "Сәмеке хан"],
+                        correct: 1
+                    },
+                    {
+                        question: "Бөгенбай батырдың баласы болды ма?",
+                        options: ["Ия, бір ұлы болды", "Ия, екі ұлы болды", "Жоқ, баласы болмады", "Белгісіз"],
+                        correct: 2
+                    },
+                    {
+                        question: "Бөгенбай батыр туралы негізгі дерек көзі?",
+                        options: ["Шежіре", "Ресей архивтері", "Аңыздар", "Қолжазбалар"],
                         correct: 0
                     }
                 ]
@@ -489,33 +511,53 @@
                 questions: [
                     {
                         question: "Қабанбай батырдың лақап аты қандай?",
-                        options: [
-                            "Ер Қабанбай",
-                            "Қалмақ қырындысы", 
-                            "Дала батыры",
-                            "Ержүрек"
-                        ],
+                        options: ["Ер Қабанбай", "Қалмақ қырындысы", "Дала батыры", "Ержүрек"],
                         correct: 1
                     },
                     {
                         question: "Қабанбай батыр қай рудан шыққан?",
-                        options: [
-                            "Найман",
-                            "Шапырашты",
-                            "Ноғайлы",
-                            "Дулат"
-                        ],
+                        options: ["Найман", "Шапырашты", "Ноғайлы", "Дулат"],
                         correct: 0
                     },
                     {
-                        question: "Қай батырдың есімі 'Қалмақ қырындысы' лақап атымен байланысты?",
-                        options: [
-                            "Қарасай батыр",
-                            "Қабанбай батыр", 
-                            "Бөгенбай батыр", 
-                            "Наурызбай батыр"
-                        ],
+                        question: "Қабанбай батыр қай жылдары өмір сүрген?",
+                        options: ["1690-1770 жж", "1705-1775 жж", "1710-1780 жж", "1720-1790 жж"],
                         correct: 1
+                    },
+                    {
+                        question: "Қабанбай батыр қандай шайқастарға қатысқан?",
+                        options: ["Орбұлақ, Аңырақай", "Бұланты, Аңырақай", "Жыланды, Бұланты", "Орбұлақ, Бұланты"],
+                        correct: 1
+                    },
+                    {
+                        question: "Қабанбай батыр қай тайпаның құрамында болды?",
+                        options: ["Найман", "Арғын", "Кіші жүз", "Қыпшақ"],
+                        correct: 0
+                    },
+                    {
+                        question: "Қабанбай батырдың әкесінің аты?",
+                        options: ["Қожаш", "Ерназар", "Болат", "Қазыбек"],
+                        correct: 3
+                    },
+                    {
+                        question: "Қабанбай батыр қай ханмен бірге соғысқан?",
+                        options: ["Әбілқайыр хан", "Абылай хан", "Жолбарыс хан", "Сәмеке хан"],
+                        correct: 1
+                    },
+                    {
+                        question: "Қабанбай батыр туралы еңбегі бар тарихшы?",
+                        options: ["Ш.Уәлиханов", "М.Әуезов", "Ә.Марғұлан", "Қ.Сәтбаев"],
+                        correct: 2
+                    },
+                    {
+                        question: "Қабанбай батырдың есімі қай қаладағы көшеге берілген?",
+                        options: ["Астана", "Алматы", "Шымкент", "Семей"],
+                        correct: 1
+                    },
+                    {
+                        question: "Қабанбай батыр туралы негізгі дерек көзі?",
+                        options: ["Шежіре", "Аңыздар", "Ресей архивтері", "Қолжазбалар"],
+                        correct: 0
                     }
                 ]
             },
@@ -524,33 +566,53 @@
                 questions: [
                     {
                         question: "Наурызбай батыр қай рудан шыққан?",
-                        options: [
-                            "Найман",
-                            "Шапырашты", 
-                            "Қанжығалы", 
-                            "Дулат"
-                        ],
+                        options: ["Найман", "Шапырашты", "Қанжығалы", "Дулат"],
                         correct: 2
                     },
                     {
                         question: "Наурызбай батыр қандай шайқаста ерлік көрсеткен?",
-                        options: [
-                            "Орбұлақ шайқасы",
-                            "Аңырақай шайқасы",
-                            "Бұланты шайқасы",
-                            "Жыланды шайқасы"
-                        ],
+                        options: ["Орбұлақ шайқасы", "Аңырақай шайқасы", "Бұланты шайқасы", "Жыланды шайқасы"],
                         correct: 2
                     },
                     {
                         question: "Бұланты шайқасы қай жылы болды?",
-                        options: [
-                            "1730 ж.",
-                            "1728 ж.", 
-                            "1643 ж.",
-                            "1758 ж."
-                        ],
+                        options: ["1730 ж.", "1728 ж.", "1643 ж.", "1758 ж."],
                         correct: 1
+                    },
+                    {
+                        question: "Наурызбай батыр қай жылы дүниеге келген?",
+                        options: ["1700 ж.", "1706 ж.", "1712 ж.", "1718 ж."],
+                        correct: 1
+                    },
+                    {
+                        question: "Наурызбай батыр қай жылы қаза тапқан?",
+                        options: ["1770 ж.", "1775 ж.", "1781 ж.", "1785 ж."],
+                        correct: 2
+                    },
+                    {
+                        question: "Наурызбай батыр қай тайпаның құрамында болды?",
+                        options: ["Арғын", "Найман", "Кіші жүз", "Орта жүз"],
+                        correct: 0
+                    },
+                    {
+                        question: "Наурызбай батырдың әкесінің аты?",
+                        options: ["Қожаш", "Ерназар", "Болат", "Қазыбек"],
+                        correct: 1
+                    },
+                    {
+                        question: "Наурызбай батыр қай ханмен бірге соғысқан?",
+                        options: ["Әбілқайыр хан", "Абылай хан", "Жолбарыс хан", "Сәмеке хан"],
+                        correct: 1
+                    },
+                    {
+                        question: "Наурызбай батырдың есімі қай облыстағы ауданға берілген?",
+                        options: ["Алматы", "Жамбыл", "Қарағанды", "Шығыс Қазақстан"],
+                        correct: 0
+                    },
+                    {
+                        question: "Наурызбай батыр туралы негізгі дерек көзі?",
+                        options: ["Шежіре", "Аңыздар", "Ресей архивтері", "Қолжазбалар"],
+                        correct: 0
                     }
                 ]
             },
@@ -559,32 +621,52 @@
                 questions: [
                     {
                         question: "Райымбек батыр қай қаланың негізін қалаған?",
-                        options: [
-                            "Астана",
-                            "Алматы", 
-                            "Шымкент",
-                            "Қарағанды"
-                        ],
+                        options: ["Астана", "Алматы", "Шымкент", "Қарағанды"],
                         correct: 1
                     },
                     {
                         question: "Райымбек батыр қай рудан шыққан?",
-                        options: [
-                            "Найман",
-                            "Шапырашты",
-                            "Ноғайлы",
-                            "Дулат"
-                        ],
+                        options: ["Найман", "Шапырашты", "Ноғайлы", "Дулат"],
                         correct: 3
                     },
                     {
-                        question: "Қай батыр Алматы қаласының негізін қалаған?",
-                        options: [
-                            "Райымбек батыр", 
-                            "Қарасай батыр",
-                            "Бөгенбай батыр",
-                            "Наурызбай батыр"
-                        ],
+                        question: "Райымбек батыр қай жылдары өмір сүрген?",
+                        options: ["1720-1780 жж", "1730-1790 жж", "1740-1800 жж", "1750-1810 жж"],
+                        correct: 3
+                    },
+                    {
+                        question: "Райымбек батыр қандай шайқастарға қатысқан?",
+                        options: ["Орбұлақ, Аңырақай", "Бұланты, Аңырақай", "Жыланды, Бұланты", "Аңырақай, Бұланты"],
+                        correct: 1
+                    },
+                    {
+                        question: "Райымбек батыр қай тайпаның құрамында болды?",
+                        options: ["Найман", "Арғын", "Ұлы жүз", "Қыпшақ"],
+                        correct: 2
+                    },
+                    {
+                        question: "Райымбек батырдың әкесінің аты?",
+                        options: ["Қожаш", "Ерназар", "Болат", "Қазыбек"],
+                        correct: 1
+                    },
+                    {
+                        question: "Райымбек батыр қай ханмен бірге соғысқан?",
+                        options: ["Әбілқайыр хан", "Абылай хан", "Жолбарыс хан", "Сәмеке хан"],
+                        correct: 1
+                    },
+                    {
+                        question: "Райымбек батырдың есімі қаланың қай бөлігіндегі даңғылка берілген?",
+                        options: ["Орталық", "Оңтүстік", "Солтүстік", "Шығыс"],
+                        correct: 1
+                    },
+                    {
+                        question: "Райымбек батыр туралы еңбегі бар тарихшы?",
+                        options: ["Ш.Уәлиханов", "М.Әуезов", "Ә.Марғұлан", "Қ.Сәтбаев"],
+                        correct: 2
+                    },
+                    {
+                        question: "Райымбек батыр туралы негізгі дерек көзі?",
+                        options: ["Шежіре", "Аңыздар", "Ресей архивтері", "Қолжазбалар"],
                         correct: 0
                     }
                 ]
@@ -594,43 +676,53 @@
                 questions: [
                     {
                         question: "Сырым Датулы қай жылдары өмір сүрген?",
-                        options: [
-                            "1712-1802 жж",
-                            "1750-1810 жж",
-                            "1720-1797 жж",
-                            "1730-1790 жж"
-                        ],
+                        options: ["1712-1802 жж", "1750-1810 жж", "1720-1797 жж", "1730-1790 жж"],
                         correct: 0
                     },
                     {
                         question: "Сырым Датулы басқарған көтеріліс қанша жылға созылды?",
-                        options: [
-                            "5 жыл",
-                            "7 жыл",
-                            "11 жыл",
-                            "15 жыл"
-                        ],
+                        options: ["5 жыл", "7 жыл", "11 жыл", "15 жыл"],
                         correct: 2
                     },
                     {
                         question: "Сырым Датулы қай рудан шыққан?",
-                        options: [
-                            "Шекті",
-                            "Байұлы",
-                            "Алшын",
-                            "Жетіру"
-                        ],
+                        options: ["Шекті", "Байұлы", "Алшын", "Жетіру"],
                         correct: 1
                     },
                     {
                         question: "Сырым Датулының көтерілісі қай жылы басталды?",
-                        options: [
-                            "1775 ж.",
-                            "1783 ж.",
-                            "1792 ж.",
-                            "1801 ж."
-                        ],
+                        options: ["1775 ж.", "1783 ж.", "1792 ж.", "1801 ж."],
                         correct: 1
+                    },
+                    {
+                        question: "Сырым Датулы қай жүздің батыры болды?",
+                        options: ["Ұлы жүз", "Орта жүз", "Кіші жүз", "Барлық жүздер"],
+                        correct: 2
+                    },
+                    {
+                        question: "Сырым Датулының көтерілісінің негізгі себебі?",
+                        options: ["Жер мәселесі", "Салықтар", "Әскери қызмет", "Хан билігі"],
+                        correct: 0
+                    },
+                    {
+                        question: "Сырым Датулы қай ханға қарсы күресті?",
+                        options: ["Нұралы хан", "Есім хан", "Әбілқайыр хан", "Абылай хан"],
+                        correct: 0
+                    },
+                    {
+                        question: "Сырым Датулының көтерілісі қай аймақта болды?",
+                        options: ["Жетісу", "Батыс Қазақстан", "Солтүстік Қазақстан", "Оңтүстік Қазақстан"],
+                        correct: 1
+                    },
+                    {
+                        question: "Сырым Датулы қай жылы қаза тапқан?",
+                        options: ["1797 ж.", "1802 ж.", "1810 ж.", "1815 ж."],
+                        correct: 1
+                    },
+                    {
+                        question: "Сырым Датулы туралы негізгі дерек көзі?",
+                        options: ["Ресей архивтері", "Аңыздар", "Қолжазбалар", "Шежіре"],
+                        correct: 0
                     }
                 ]
             },
@@ -639,42 +731,52 @@
                 questions: [
                     {
                         question: "Жәменке батыр қай жылдары өмір сүрген?",
-                        options: [
-                            "1730-1798 жж",
-                            "1755-1820 жж",
-                            "1770-1835 жж",
-                            "1785-1840 жж"
-                        ],
+                        options: ["1730-1798 жж", "1755-1820 жж", "1770-1835 жж", "1785-1840 жж"],
                         correct: 1
                     },
                     {
                         question: "Жәменке батыр қай рудан шыққан?",
-                        options: [
-                            "Шапырашты",
-                            "Қанжығалы",
-                            "Албан",
-                            "Суан"
-                        ],
+                        options: ["Шапырашты", "Қанжығалы", "Албан", "Суан"],
                         correct: 2
                     },
                     {
                         question: "Жәменке батыр қандай шайқаста ерлік көрсеткен?",
-                        options: [
-                            "Аңырақай шайқасы",
-                            "Тәуке хан кезіндегі шайқас",
-                            "Шақшақ Жәнібек көтерілісі",
-                            "Қазақ-жоңғар соғысы"
-                        ],
+                        options: ["Аңырақай шайқасы", "Тәуке хан кезіндегі шайқас", "Шақшақ Жәнібек көтерілісі", "Қазақ-жоңғар соғысы"],
                         correct: 2
                     },
                     {
                         question: "Жәменке батыр қай аймақта белсенді болды?",
-                        options: [
-                            "Жетісу",
-                            "Орта жүз",
-                            "Батыс Қазақстан",
-                            "Солтүстік Қазақстан"
-                        ],
+                        options: ["Жетісу", "Орта жүз", "Батыс Қазақстан", "Солтүстік Қазақстан"],
+                        correct: 1
+                    },
+                    {
+                        question: "Жәменке батыр қай тайпаның құрамында болды?",
+                        options: ["Арғын", "Найман", "Ұлы жүз", "Қыпшақ"],
+                        correct: 0
+                    },
+                    {
+                        question: "Жәменке батыр қай жүздің батыры болды?",
+                        options: ["Ұлы жүз", "Орта жүз", "Кіші жүз", "Барлық жүздер"],
+                        correct: 1
+                    },
+                    {
+                        question: "Жәменке батырдың әкесінің аты?",
+                        options: ["Қожаш", "Ерназар", "Болат", "Қазыбек"],
+                        correct: 1
+                    },
+                    {
+                        question: "Жәменке батыр қай ханмен бірге соғысқан?",
+                        options: ["Әбілқайыр хан", "Абылай хан", "Жолбарыс хан", "Сәмеке хан"],
+                        correct: 1
+                    },
+                    {
+                        question: "Жәменке батыр туралы негізгі дерек көзі?",
+                        options: ["Шежіре", "Аңыздар", "Ресей архивтері", "Қолжазбалар"],
+                        correct: 0
+                    },
+                    {
+                        question: "Жәменке батыр қай жылы қаза тапқан?",
+                        options: ["1815 ж.", "1820 ж.", "1825 ж.", "1830 ж."],
                         correct: 1
                     }
                 ]
@@ -684,43 +786,53 @@
                 questions: [
                     {
                         question: "Жиеншора батыр қай жылдары өмір сүрген?",
-                        options: [
-                            "1740-1805 жж",
-                            "1760-1825 жж",
-                            "1780-1840 жж",
-                            "1790-1850 жж"
-                        ],
+                        options: ["1740-1805 жж", "1760-1825 жж", "1780-1840 жж", "1790-1850 жж"],
                         correct: 1
                     },
                     {
                         question: "Жиеншора батыр қай рудан шыққан?",
-                        options: [
-                            "Шапырашты",
-                            "Қанжығалы",
-                            "Ысты",
-                            "Ошақты"
-                        ],
+                        options: ["Шапырашты", "Қанжығалы", "Ысты", "Ошақты"],
                         correct: 3
                     },
                     {
                         question: "Жиеншора батыр қандай тарихи оқиғаларға қатысқан?",
-                        options: [
-                            "Қазақ-жоңғар соғысы",
-                            "Кенесары көтерілісі",
-                            "Абылай ханның біріктіру саясаты",
-                            "Қазақ хандығының құрылуы"
-                        ],
+                        options: ["Қазақ-жоңғар соғысы", "Кенесары көтерілісі", "Абылай ханның біріктіру саясаты", "Қазақ хандығының құрылуы"],
                         correct: 1
                     },
                     {
                         question: "Жиеншора батыр қай өңірде белсенді болды?",
-                        options: [
-                            "Сырдария бойы",
-                            "Жетісу",
-                            "Орта жүз",
-                            "Батыс Қазақстан"
-                        ],
+                        options: ["Сырдария бойы", "Жетісу", "Орта жүз", "Батыс Қазақстан"],
                         correct: 0
+                    },
+                    {
+                        question: "Жиеншора батыр қай тайпаның құрамында болды?",
+                        options: ["Арғын", "Найман", "Ұлы жүз", "Қыпшақ"],
+                        correct: 2
+                    },
+                    {
+                        question: "Жиеншора батыр қай жүздің батыры болды?",
+                        options: ["Ұлы жүз", "Орта жүз", "Кіші жүз", "Барлық жүздер"],
+                        correct: 0
+                    },
+                    {
+                        question: "Жиеншора батырдың әкесінің аты?",
+                        options: ["Қожаш", "Ерназар", "Болат", "Қазыбек"],
+                        correct: 1
+                    },
+                    {
+                        question: "Жиеншора батыр қай ханмен бірге соғысқан?",
+                        options: ["Әбілқайыр хан", "Абылай хан", "Кенесары хан", "Сәмеке хан"],
+                        correct: 2
+                    },
+                    {
+                        question: "Жиеншора батыр туралы негізгі дерек көзі?",
+                        options: ["Шежіре", "Аңыздар", "Ресей архивтері", "Қолжазбалар"],
+                        correct: 0
+                    },
+                    {
+                        question: "Жиеншора батыр қай жылы қаза тапқан?",
+                        options: ["1820 ж.", "1825 ж.", "1830 ж.", "1835 ж."],
+                        correct: 1
                     }
                 ]
             }
