@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Карталар | Maps</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family:'Georgia',serif;
+    background:
+        linear-gradient(rgba(255,255,255,0.85),rgba(255,255,255,0.85)),
+        url('https://images.unsplash.com/photo-1596541223130-5d0c0b0b5c0f?auto=format&fit=crop&w=2070&q=80')
+        no-repeat center center fixed;
+    background-size:cover;
+    color:#202122;
+    line-height:1.6;
+}
+.container{max-width:1300px;margin:0 auto;padding:25px;}
+.block{
+    background:rgba(255,255,255,0.92);
+    padding:25px;
+    border-radius:8px;
+    backdrop-filter:blur(10px);
+    margin-bottom:30px;
+    border:1px solid #a7d7f9;
+    box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+.block h2{
+    font-size:1.7em;
+    margin-bottom:15px;
+    color:#0645ad;
+    border-bottom:1px solid #cdd8e6;
+    padding-bottom:5px;
+}
+.block p{
+    font-size:1.05em;
+    margin-bottom:15px;
+}
+
+/* --- MAP HOLDER FIX --- */
+.map-holder{
+    width:100%;
+    min-height:350px;        /* жоғарыдан төмен биіктігі */
+    background:#eef2f7;
+    border:2px dashed #8fb3dd;
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#557199;
+    font-size:1.1em;
+    margin-top:15px;
+    overflow:hidden;         /* карта тасып кетпеу үшін */
+}
+
+.map-holder img{
+    width:100%;
+    height:auto;
+    object-fit:contain;      /* сурет бұрмаланбайды */
+    display:block;
+}
+
+.back-button{
+    display:block;
+    width:200px;
+    margin:20px auto;
+    text-align:center;
+    background:#36c;
+    color:#fff;
+    padding:12px;
+    border-radius:5px;
+    text-decoration:none;
+    font-weight:bold;
+}
+.back-button:hover{
+    background:#0645ad;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<a href="index.html" class="back-button">Басты бетке оралу</a>
+
+<div class="block">
+<h2>1) XVIII ғасырдың басындағы жағдай</h2>
+<p>XVIII ғасырдың басында қазақ хандығының бір тұтастығы жойылды. Қазақ жеріне тұс-тұстан қауіп төнді: Батыстан – Еділ қалмақтары, Орал казактары, солтүстік-батыстан – башқұрттар, солтүстіктен – Сібір казактары, шығыстан – жоңғарлар, оңтүстіктер – Орта Азия хандықтары (Хиуа, Бұхар, Қоқан хандықтары).</p>
+<div class="map-holder">
+    <img src="/home/ylred/Изображения/Снимки экрана/Снимок экрана от 2025-11-30 21-25-42.png">
+</div>
+</div>
+
+<div class="block">
+<h2>2) Шайқастар: жерлері мен мерзімдері</h2>
+<p>Шайқастардың орындары мен жылдарын көрсететін тарихи карта.</p>
+<div class="map-holder">
+    <img src="/home/ylred/Изображения/Снимки экрана/Снимок экрана от 2025-11-30 21-25-57.png">
+</div>
+</div>
+
+<div class="block">
+<h2>3) Абылай хан кезіндегі Қазақ хандығы</h2>
+<p>Абылай тұсындағы саяси кеңею, ел аумағы және негізгі аймақтар көрсетілетін карта.</p>
+<div class="map-holder">
+    <img src="/home/ylred/Изображения/Снимки экрана/Снимок экрана от 2025-11-30 21-26-22.png">
+</div>
+</div>
+
+<div class="block">
+<h2>4) XIX ғасырдағы Қазақстан</h2>
+<p>XIX ғасырдағы әкімшілік өзгерістер, аймақтар, негізгі оқиғалар.</p>
+<div class="map-holder">
+    <img src="/home/ylred/Изображения/Снимки экрана/Снимок экрана от 2025-11-30 21-26-42.png">
+</div>
+</div>
+
+<div class="block">
+<h2>5) Ресей империясына қарсы көтерілістер</h2>
+<p>Сырым Датұлы, Исатай–Махамбет, Кенесары, Жанқожа, Есет көтерілістерінің карталары.</p>
+<div class="map-holder">
+    <img src="/home/ylred/Изображения/Снимки экрана/Снимок экрана от 2025-11-30 21-27-01.png">
+</div>
+</div>
+
+<a href="index.html" class="back-button">Басты бетке оралу</a>
+
+</div>
+
+</body>
+</html>
